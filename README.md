@@ -111,6 +111,8 @@ The full engineering log is in [RELEASE-PROGRESS.md](RELEASE-PROGRESS.md).
 
 # 📚 Project Docs
 
+- [CONTRIBUTING.md](CONTRIBUTING.md): how to contribute and publish a new version
+- [versions/](versions/): the full version history, one record per version
 - [RELEASE-PROGRESS.md](RELEASE-PROGRESS.md): what is done, verified and still open
 - [PRODUCTION-ROADMAP.md](PRODUCTION-ROADMAP.md): acceptance phases
 - Feature notes such as [ROOM-CODES.md](ROOM-CODES.md), [SOLO-DIFFICULTY.md](SOLO-DIFFICULTY.md) and [DON-DETECTION.md](DON-DETECTION.md)
