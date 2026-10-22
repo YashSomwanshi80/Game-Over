@@ -15,11 +15,12 @@ Tapsee has to reach the phone and call the police. Don has to stop her. Play alo
 
 | Version | Platform | Download |
 |---|---|---|
-| **v0.3.29** (latest) | Android 8.0+ (ARM64) | [**GAME-OVER-v0.3.29.apk**](https://github.com/YashSomwanshi80/Game-Over/releases/download/v0.3.29/GAME-OVER-v0.3.29.apk) |
+| **v0.3.30** (latest) | Android 8.0+ (ARM64) | [**GAME-OVER-v0.3.30.apk**](https://github.com/YashSomwanshi80/Game-Over/releases/download/v0.3.30/GAME-OVER-v0.3.30.apk) |
+| v0.3.29 (blurry on phones, use v0.3.30) | Android 8.0+ (ARM64) | [GAME-OVER-v0.3.29.apk](https://github.com/YashSomwanshi80/Game-Over/releases/download/v0.3.29/GAME-OVER-v0.3.29.apk) |
 | v0.3.28 | Android 8.0+ (ARM64) | [GAME-OVER-v0.3.28.apk](https://github.com/YashSomwanshi80/Game-Over/releases/download/v0.3.28/GAME-OVER-v0.3.28.apk) |
 | v0.3.27 | Android 8.0+ (ARM64) | [GAME-OVER-v0.3.27.apk](https://github.com/YashSomwanshi80/Game-Over/releases/download/v0.3.27/GAME-OVER-v0.3.27.apk) |
 
-SHA-256 (v0.3.29): `339b14f0e7a4fa66d0e54766fdde4c412de96ca5aaadeca5ebf266d21aa40d15` (70.0 MB, release build, ARM64). Built with Unity 6000.3.21f1 and **not yet tested on a physical phone**.
+SHA-256 (v0.3.30): `9ab648612a0a3c39598a0111b00541facc8abafda972e16730d988d2b0c4e398` (70.0 MB, release build, ARM64). Built with Unity 6000.3.21f1. Installed and checked on one phone (OnePlus CPH2585, Android 16); heat and battery are **not yet measured**.
 
 **Updating from an older install:** every build from v0.3.27 on is signed with one key, and Android will not update an app signed with a different key. If an install fails with "App not installed as package appears to be invalid", uninstall the old Game Over first (this clears its saved settings), then install.
 

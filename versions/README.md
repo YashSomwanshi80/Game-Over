@@ -4,7 +4,8 @@ Newest first. Every version keeps its own record file, its own git tag and its o
 
 | Version | Date | Summary | Record | Tag |
 |---|---|---|---|---|
-| **v0.3.29** (latest) | 2026-10-22 | Cooler phone graphics (fewer lights and shadows, render scale) and minimap doorway walls | [v0.3.29.md](v0.3.29.md) | `v0.3.29` |
+| **v0.3.30** (latest) | 2026-10-22 | Fixes the blurry picture on phones from v0.3.29 | [v0.3.30.md](v0.3.30.md) | `v0.3.30` |
+| v0.3.29 | 2026-10-22 | Cooler phone graphics (fewer lights and shadows, render scale) and minimap doorway walls | [v0.3.29.md](v0.3.29.md) | `v0.3.29` |
 | v0.3.28 | 2026-10-22 | Frame-rate cap and graphics quality settings | [v0.3.28.md](v0.3.28.md) | `v0.3.28` |
 | v0.3.27 | 2026-10-22 | Minimap top left, camera dots for Tapsee, CCTV east hall | [v0.3.27.md](v0.3.27.md) | `v0.3.27` |
 
