@@ -27,6 +27,9 @@ svg{background:
  <span><i style="background:#6fd0ff;opacity:.7"></i>Window</span>
  <span><i style="background:var(--stair)"></i>Stairs</span>
  <span><i style="background:var(--furn)"></i>Furniture / fixtures</span>
+ <span><i style="background:#1f7a4d;border-radius:5px;width:10px"></i>H = hiding spot (13 total)</span>
+ <span><i style="background:#0f8f7a;width:12px"></i>P = phone (solo: living room, multiplayer: basement office)</span>
+ <span><i style="background:#e0a020;width:12px"></i>Main breaker (basement utility room)</span>
  <span><i style="background:#ff4d4d;border-radius:5px;width:10px"></i>CCTV camera (number = CAM id, cone = view direction)</span>
 </div>
 <script>
@@ -38,6 +41,9 @@ const ST=(x0,z0,x1,z1)=>({k:'s',x0,z0,x1,z1});
 const WIN=(x0,z0,x1,z1)=>({k:'win',x0,z0,x1,z1});
 const D=(x,z,width,along,name)=>({k:'d',x,z,width,along,name}); // along 'x' = wall runs along x
 const L=(x,z,text,size)=>({k:'l',x,z,text,size:size||13});
+const H=(x,z,name)=>({k:'h',x,z,name}); // hiding spot (HidingLayout.cs)
+const PH=(x,z,name)=>({k:'p',x,z,name}); // phone
+const BR=(x,z,name)=>({k:'b',x,z,name}); // main breaker (MainPowerLayout.cs)
 const R=(x0,z0,x1,z1,label)=>({k:'r',x0,z0,x1,z1,label});
 const C=(n,x,z,tx,tz,name)=>({k:'c',n,x,z,tx,tz,name}); // CCTV: position + target from HouseCctv.cs
 
@@ -67,6 +73,7 @@ const floors={
  L(0,2.6,'CENTRAL STAIR  (17 risers)',11),L(2.55,5.2,'STAIR TO',11),L(2.55,4.7,'BASEMENT',11),
  L(13,5.4,'GARAGE',14),L(-13,-1,'GARDEN ROOM',12),L(-13,-1.7,'(estate, per door data)',10),
  L(0,-8.2,'FRONT (SOUTH)',12),
+ H(-1.95,4.7,'Kitchen cupboard'),H(-12.2,3.8,'Garden cabinet'),H(11.5,6.4,'Garage locker'),PH(7,4,'PHONE (solo)'),
  C(1,9.5,6.5,4.5,-1,'LIVING ROOM'),C(6,16.5,-7.6,13.5,-14,'EXT / DRIVEWAY')
 ]},
 'First floor':{box:[-15,-11,15,8],items:[
@@ -100,6 +107,7 @@ const floors={
  L(-6,-.8,'WEST BEDROOM',14),L(5.7,-.8,'EAST BEDROOM',14),L(0,-3.5,'HALL',12),
  L(-7.1,4.8,'LIBRARY',14),L(4.4,3.2,'TECH STUDIO',13),L(-2.8,3.9,'WASHROOM 1',9),L(8.6,5.1,'WASHROOM 2',9),
  L(0,3,'STAIRWELL',11),L(0,6.3,'LANDING',10),L(-11,0,'BALCONY',11),L(0,-8,'BALCONY',11),
+ H(-6,-4.9,'Bed 1'),H(5,-4.9,'Bed 2'),H(-2.9,1.9,'Cupboard'),H(-8.8,-6.4,'Cupboard'),H(9.4,.85,'Cupboard'),H(8.75,-6.4,'Cupboard'),H(-3.25,3.05,'Bathtub'),H(8.65,3.05,'Bathtub'),
  C(2,.9,1.5,0,-2,'STAIRS / HALL'),C(5,-3,-8.1,0,-16.7,'EXT / MAIN GATE'),C(7,8.8,7.6,0,14,'EXT / BACK GARDEN')
 ]},
 'Basement':{box:[-12,-9,12,9],items:[
@@ -128,6 +136,7 @@ const floors={
  L(-7.5,2.4,'OFFICE',14),L(-7.5,-.8,'GYM',14),L(-1.8,-2,'GAME ROOM / CORRIDOR',13),L(-1.8,-3,'(pool table, radio console)',10),
  L(0,4.5,'SAFE',12),L(0,3.9,'ROOM',12),L(4.4,2.6,'STORAGE',9),L(3.2,0.3,'EAST HALL',10),
  L(7.5,4.2,'LAUNDRY',13),L(8,-2.2,'WORKSHOP',14),L(3.2,-4,'UTILITY',12),L(2.6,7.6,'STAIR FROM GROUND',10),
+ H(9,3.75,'Linen trolley'),H(9.35,-.2,'Workshop locker'),PH(-9.02,5.65,'PHONE (multiplayer)'),BR(2.2,-6.65,'MAIN BREAKER'),
  C(3,-9.65,6.5,-7.1,2.5,'OFFICE'),C(4,4.7,1.5,1.5,-1.2,'EAST HALL')
 ]}
 };
@@ -139,7 +148,7 @@ function draw(name){
  const svg=el('svg',{viewBox:`0 0 ${w} ${h}`,width:w,height:h});
  const X=x=>(x-bx0)*S, Y=z=>(bz1-z)*S;
  const rect=(x0,z0,x1,z1,a)=>el('rect',Object.assign({x:X(Math.min(x0,x1)),y:Y(Math.max(z0,z1)),width:Math.abs(x1-x0)*S,height:Math.abs(z1-z0)*S},a),svg);
- const order=['r','s','f','w','win','d','c','l'];
+ const order=['r','s','f','w','win','d','h','p','b','c','l'];
  for(const kind of order)for(const it of fl.items.filter(i=>i.k===kind)){
   if(kind==='r')rect(it.x0,it.z0,it.x1,it.z1,{fill:'rgba(143,208,255,.07)',stroke:'#5fa8e0','stroke-dasharray':'4 3','stroke-width':1});
   if(kind==='w'){const horiz=it.z0===it.z1;const t=T/2;
@@ -161,6 +170,14 @@ function draw(name){
             :`M ${sx} ${sy} L ${sx} ${sy-it.width*S} A ${it.width*S} ${it.width*S} 0 0 1 ${sx+it.width*S} ${sy} Z`;
    el('path',{d:p,fill:'rgba(255,207,90,.08)',stroke:'#ffcf5a','stroke-width':.7,'stroke-dasharray':'3 2'},svg);
    const t=el('text',{x:X(it.x)+(a?0:8),y:Y(it.z)+(a?-9:-6),'text-anchor':a?'middle':'start','font-size':8.5,fill:'#ffcf5a'},svg);t.textContent=it.name;}
+  if(kind==='h'){el('circle',{cx:X(it.x),cy:Y(it.z),r:7,fill:'#1f7a4d',stroke:'#7dffb8','stroke-width':1.2},svg);
+   el('text',{x:X(it.x),y:Y(it.z)+3.5,'text-anchor':'middle','font-size':9,'font-weight':700,fill:'#eafff3'},svg).textContent='H';}
+  if(kind==='p'){const px=X(it.x),py=Y(it.z);el('rect',{x:px-8,y:py-8,width:16,height:16,rx:3,fill:'#0f8f7a',stroke:'#7dffe3','stroke-width':1.4},svg);
+   el('text',{x:px,y:py+4,'text-anchor':'middle','font-size':11,'font-weight':700,fill:'#fff'},svg).textContent='P';
+   el('text',{x:px,y:py+20,'text-anchor':'middle','font-size':8.5,fill:'#7dffe3'},svg).textContent=it.name;}
+  if(kind==='b'){const px=X(it.x),py=Y(it.z);el('polygon',{points:`${px},${py-9} ${px+9},${py+7} ${px-9},${py+7}`,fill:'#e0a020',stroke:'#fff3c0','stroke-width':1.2},svg);
+   el('text',{x:px,y:py+5,'text-anchor':'middle','font-size':9,'font-weight':700,fill:'#2a1a00'},svg).textContent='!';
+   el('text',{x:px,y:py+20,'text-anchor':'middle','font-size':8.5,fill:'#ffd36b'},svg).textContent=it.name;}
   if(kind==='c'){const dx=it.tx-it.x,dz=it.tz-it.z,len=Math.hypot(dx,dz),ang=Math.atan2(dz,dx),fov=.5,r=3.2;
    const pt=a=>[X(it.x+Math.cos(a)*r),Y(it.z+Math.sin(a)*r)];const [ax,ay]=pt(ang-fov),[bx,by]=pt(ang+fov);
    el('path',{d:`M ${X(it.x)} ${Y(it.z)} L ${ax} ${ay} A ${r*S} ${r*S} 0 0 0 ${bx} ${by} Z`,fill:'rgba(255,90,90,.18)',stroke:'#ff6b6b','stroke-width':.8,'stroke-dasharray':'3 2'},svg);

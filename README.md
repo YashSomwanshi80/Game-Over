@@ -17,6 +17,8 @@ Tapsee has to reach the phone and call the police. Don has to stop her. Play alo
 |---|---|---|
 | **v0.3.27** (latest) | Android 8.0+ (ARM64) | [**GAME-OVER-v0.3.27.apk**](https://github.com/YashSomwanshi80/Game-Over/releases/download/v0.3.27/GAME-OVER-v0.3.27.apk) |
 
+SHA-256: `d33d2cf5529d12cf9610d9e2aa217fe4242f445dc8fe2d7ac6c643c169b7eec6` (70.9 MB, release build, ARM64). Built with Unity 6000.5.7f1 and **not yet tested on a physical phone**.
+
 All versions: [Releases page](https://github.com/YashSomwanshi80/Game-Over/releases)
 
 **To install:** download the APK on your phone, open it, and allow "Install unknown apps" for your browser or file manager when Android asks. Both players need the same version to play LAN multiplayer.
