@@ -1,0 +1,9 @@
+PASS: Bedroom 1 north cupboard / visible entry-search prompt, range, 8 cm camera clearance and enclosed view or tub peek
+PASS: Bedroom 1 south cupboard / visible entry-search prompt, range, 8 cm camera clearance and enclosed view or tub peek
+PASS: Bedroom 2 north cupboard / visible entry-search prompt, range, 8 cm camera clearance and enclosed view or tub peek
+PASS: Bedroom 2 south cupboard / visible entry-search prompt, range, 8 cm camera clearance and enclosed view or tub peek
+PASS: Washroom 1 bathtub / visible entry-search prompt, range, 8 cm camera clearance and enclosed view or tub peek
+PASS: Washroom 2 bathtub / visible entry-search prompt, range, 8 cm camera clearance and enclosed view or tub peek
+PASS: new enclosures do not overlap existing room, furniture or bathroom-fixture collision
+PASS: two bathtub hides and four cupboard hides bring the total to twelve
+Offline geometry only. Actual Unity entry/exit, camera framing, rendering, searches and LAN replication remain unverified.

@@ -1,0 +1,9 @@
+PASS: All authored collision boxes have finite positions and positive dimensions
+PASS: New opaque wall finishes, screens and facade pieces leave existing window apertures clear
+PASS: Telephone, both garden routes, cabinet exit, terrace, gates and basement approach are connected with doors open
+PASS: Four individual passage closures retain an alternate indoor kitchen-to-telephone route
+PASS: Existing upstairs suites/studies and basement rooms remain connected on their respective floors
+PASS: All 12 hiding spots have empty camera positions, clear standing exits and floor routes
+PASS: 1691 single-door poses clear collision and visible architecture across all enclosed rooms
+PASS: Scanned tree has valid alpha-cutout leaves and distinct [39999, 11499, 3142] triangle LODs
+Offline geometry and asset checks only. Unity rendering, CharacterController, NavMesh, shader import, LAN and device performance require engine validation.

@@ -1,0 +1,272 @@
+{
+  "unity": "6000.3.21f1",
+  "render_pipeline": "Built-in forward; GraphicsSettings custom pipeline is null",
+  "scenes": [
+    "Assets\\Scenes\\Prototype.unity"
+  ],
+  "prefabs": [
+    "Assets\\ArtBackups\\LivingRoom\\AuthoredLivingRoom-before-mesh-refresh.prefab",
+    "Assets\\Resources\\Characters\\Don.prefab",
+    "Assets\\Resources\\Characters\\Tapsee.prefab",
+    "Assets\\Resources\\Environment\\VerticalSlice\\AuthoredLivingRoom.prefab"
+  ],
+  "runtime_cs": 44,
+  "editor_cs": 10,
+  "packages": {
+    "com.unity.modules.ai": "1.0.0",
+    "com.unity.modules.animation": "1.0.0",
+    "com.unity.modules.audio": "1.0.0",
+    "com.unity.modules.imgui": "1.0.0",
+    "com.unity.modules.physics": "1.0.0",
+    "com.unity.modules.particlesystem": "1.0.0",
+    "com.unity.modules.video": "1.0.0",
+    "com.unity.modules.jsonserialize": "1.0.0"
+  },
+  "asset_file_bytes": 75583663,
+  "android_support_folder_present": true,
+  "engine_validation": "Most recent batch invocation returned without a log/completion marker; not a verified editor run.",
+  "android_hardware_validation": "Not run; minimum phone model not supplied.",
+  "backup": "Backups/GameOver-before-vertical-slice.zip",
+  "asset_registry": [
+    {
+      "id": "alarm_clock_01",
+      "triangles": 8985,
+      "materials": 2,
+      "textures": [
+        {
+          "file": "alarm_clock_01_arm_1k.jpg",
+          "source_pixels": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "file": "alarm_clock_01_diff_1k.jpg",
+          "source_pixels": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "file": "alarm_clock_01_nor_gl_1k.jpg",
+          "source_pixels": [
+            1024,
+            1024
+          ]
+        }
+      ],
+      "source": "Poly Haven; existing downloaded files and author credits in ArtSources/PolyHaven/SOURCES.md",
+      "license": "CC0 per retained source register",
+      "suitability": "Existing 1K conversion; verify alpha/shader and device frame time. Dense plant remains a profiling risk."
+    },
+    {
+      "id": "ceramic_vase_03",
+      "triangles": 11136,
+      "materials": 1,
+      "textures": [
+        {
+          "file": "ceramic_vase_03_diff_1k.jpg",
+          "source_pixels": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "file": "ceramic_vase_03_nor_gl_1k.jpg",
+          "source_pixels": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "file": "ceramic_vase_03_rough_1k.jpg",
+          "source_pixels": [
+            1024,
+            1024
+          ]
+        }
+      ],
+      "source": "Poly Haven; existing downloaded files and author credits in ArtSources/PolyHaven/SOURCES.md",
+      "license": "CC0 per retained source register",
+      "suitability": "Existing 1K conversion; verify alpha/shader and device frame time. Dense plant remains a profiling risk."
+    },
+    {
+      "id": "modern_arm_chair_01",
+      "triangles": 8916,
+      "materials": 2,
+      "textures": [
+        {
+          "file": "modern_arm_chair_01_legs_arm_1k.jpg",
+          "source_pixels": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "file": "modern_arm_chair_01_legs_diff_1k.jpg",
+          "source_pixels": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "file": "modern_arm_chair_01_legs_nor_gl_1k.jpg",
+          "source_pixels": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "file": "modern_arm_chair_01_pillow_arm_1k.jpg",
+          "source_pixels": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "file": "modern_arm_chair_01_pillow_diff_1k.jpg",
+          "source_pixels": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "file": "modern_arm_chair_01_pillow_nor_gl_1k.jpg",
+          "source_pixels": [
+            1024,
+            1024
+          ]
+        }
+      ],
+      "source": "Poly Haven; existing downloaded files and author credits in ArtSources/PolyHaven/SOURCES.md",
+      "license": "CC0 per retained source register",
+      "suitability": "Existing 1K conversion; verify alpha/shader and device frame time. Dense plant remains a profiling risk."
+    },
+    {
+      "id": "modern_coffee_table_01",
+      "triangles": 4504,
+      "materials": 1,
+      "textures": [
+        {
+          "file": "modern_coffee_table_01_diff_1k.jpg",
+          "source_pixels": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "file": "modern_coffee_table_01_nor_gl_1k.jpg",
+          "source_pixels": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "file": "modern_coffee_table_01_rough_1k.jpg",
+          "source_pixels": [
+            1024,
+            1024
+          ]
+        }
+      ],
+      "source": "Poly Haven; existing downloaded files and author credits in ArtSources/PolyHaven/SOURCES.md",
+      "license": "CC0 per retained source register",
+      "suitability": "Existing 1K conversion; verify alpha/shader and device frame time. Dense plant remains a profiling risk."
+    },
+    {
+      "id": "potted_plant_01",
+      "triangles": 28617,
+      "materials": 2,
+      "textures": [
+        {
+          "file": "potted_plant_01_leaves_diff_1k.jpg",
+          "source_pixels": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "file": "potted_plant_01_leaves_nor_gl_1k.jpg",
+          "source_pixels": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "file": "potted_plant_01_leaves_rough_1k.jpg",
+          "source_pixels": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "file": "potted_plant_01_pot_diff_1k.jpg",
+          "source_pixels": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "file": "potted_plant_01_pot_nor_gl_1k.jpg",
+          "source_pixels": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "file": "potted_plant_01_pot_rough_1k.jpg",
+          "source_pixels": [
+            1024,
+            1024
+          ]
+        }
+      ],
+      "source": "Poly Haven; existing downloaded files and author credits in ArtSources/PolyHaven/SOURCES.md",
+      "license": "CC0 per retained source register",
+      "suitability": "Existing 1K conversion; verify alpha/shader and device frame time. Dense plant remains a profiling risk."
+    },
+    {
+      "id": "sofa_03",
+      "triangles": 8004,
+      "materials": 2,
+      "textures": [
+        {
+          "file": "sofa_03_diff_1k.jpg",
+          "source_pixels": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "file": "sofa_03_nor_gl_1k.jpg",
+          "source_pixels": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "file": "sofa_03_rough_1k.jpg",
+          "source_pixels": [
+            1024,
+            1024
+          ]
+        }
+      ],
+      "source": "Poly Haven; existing downloaded files and author credits in ArtSources/PolyHaven/SOURCES.md",
+      "license": "CC0 per retained source register",
+      "suitability": "Existing 1K conversion; verify alpha/shader and device frame time. Dense plant remains a profiling risk."
+    },
+    {
+      "id": "LivingRoomSlice",
+      "source": "Original project-authored Blender mesh",
+      "license": "Project-authored, no third-party mesh added",
+      "lod_triangles": [
+        10428,
+        2700
+      ],
+      "material_draws_per_lod": 5,
+      "textures": "Existing parquet, travertine, walnut, plaster and brass resources plus a native geometry-baked 1024-square floor AO map",
+      "suitability": "UV2 import requested; no baked lightmap or real phone benchmark yet."
+    }
+  ]
+}

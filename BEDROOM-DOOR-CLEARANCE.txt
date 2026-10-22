@@ -1,0 +1,3 @@
+PASS: 712 sampled leaf poses across all four bedroom/library/studio openings clear the current FirstFloorLayout collision boxes.
+PASS: closed leaves fit the existing doorway widths and lintel heights.
+This offline OBB/AABB sweep does not validate Unity physics, animation, AI navigation or LAN transport.

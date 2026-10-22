@@ -1,0 +1,89 @@
+Active runtime/editor C# compilation passed against installed Unity assemblies.
+PASS: Default mouse response preserved
+PASS: Mouse sensitivity scales rotation
+PASS: Equivalent swipes match at doubled pixel density
+PASS: Wide phones retain height-based swipe scale
+PASS: Touch preference applies independently
+PASS: Same total swipe distance gives equal rotation across input rates
+PASS: Invert look changes vertical direction only
+PASS: Saved sensitivity stays in supported range
+PASS: Invalid saved values recover to default
+PASS: Zero-sized safe area cannot divide by zero
+10 camera-input rule checks passed. Unity input and touch hardware remain unverified.
+PASS: Walk speed is the normal default
+PASS: Moving sprint consumes stamina
+PASS: Sprinting exhausts and stops instead of running indefinitely
+PASS: Rest restores stamina and clears exhaustion
+PASS: Crouch lowers physical capsule height
+PASS: Crouching prevents sprint
+PASS: Low ceiling prevents standing
+PASS: Clear headroom permits standing
+PASS: Grounded jump gives upward velocity
+PASS: Repeated mid-air input cannot double jump
+PASS: Ceiling collision removes upward velocity
+PASS: Gravity brings the player down
+PASS: Hiding clears vertical momentum and sprint
+PASS: CCTV/inactive controls cannot move stance, sprint or jump
+PASS: Brief ledge grace permits a late jump
+PASS: Buffered jump fires when landing promptly
+16 movement-rule checks passed. Native Unity collision and input remain unverified.
+PASS: Zone entry produces alert
+PASS: Standing in zone does not refresh alert
+PASS: Later re-entry produces new alert
+PASS: Elapsed time never cuts power
+PASS: Don switching off clears power and sensor alert
+PASS: Power stays off until restored; offline sensor stays off
+PASS: Repeated switch-off is safe
+PASS: Restoration does not reveal stale movement
+PASS: Restored power stays on indefinitely with no automatic outage
+PASS: Sensor re-entry works after restoring power
+PASS: Don can cut power again after restoration
+PASS: Paused security clock does not change power
+PASS: New run starts powered on
+13 manual-power/security checks passed.
+PASS: Fresh match starts with no call and 100-second rescue
+PASS: Tapsee host assigns joining player Don
+PASS: Don host assigns joining player Tapsee
+PASS: Partial call does not connect
+PASS: Interrupted call resets
+PASS: Five continuous seconds connects call
+PASS: Connected call stays connected
+PASS: Zero time does not advance rescue
+PASS: No premature rescue before countdown finishes
+PASS: Countdown awards Tapsee rescue
+PASS: Finished match cannot change winner
+PASS: Capture wins a simultaneous rescue frame
+PASS: Don can capture before call connects
+PASS: Rescue timer waits for connected call
+14 match rule checks passed.
+PASS: Normal launch opens menu
+PASS: Retry starts a fresh run directly
+PASS: Retry is consumed once
+PASS: Menu request clears a pending retry
+PASS: Menu navigation preserves normal intro flow
+PASS: Another retry works after visiting menu
+PASS: Following scene starts with normal route
+7 routing checks passed. Unity scene loading and UI require Play-mode validation.
+PASS: Telephone approach, range and prompt sightline
+PASS: Fuse box approach, range and prompt sightline
+PASS: Main entrance approach, range and prompt sightline
+PASS: closed main entrance collision leaf
+PASS: Kitchen cupboard camera, viewing gap, standing exit and floor route
+PASS: Bedroom 1 bed camera, viewing gap, standing exit and floor route
+PASS: Bedroom 2 bed camera, viewing gap, standing exit and floor route
+PASS: Garage locker camera, viewing gap, standing exit and floor route
+PASS: Workshop locker camera, viewing gap, standing exit and floor route
+Five hiding spots pass geometric checks. Unity NavMesh links, actual entry/exit and camera framing require Play mode.
+PASS: landing to Bedroom 1
+PASS: landing to Bedroom 2
+PASS: landing to Washroom 1
+PASS: landing to Washroom 2
+PASS: landing to West balcony
+PASS: landing to Front balcony
+PASS: landing to Library
+PASS: landing to Tech studio
+PASS: upper hiding exit / Bedroom 1 bed
+PASS: upper hiding exit / Bedroom 2 bed
+Checks are geometric; Unity stair navigation still needs runtime testing.
+
+These checks do not validate engine rendering, physical input, full matches, LAN transport or Android performance.

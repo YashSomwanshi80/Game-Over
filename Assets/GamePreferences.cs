@@ -1,0 +1,79 @@
+using UnityEngine;
+
+public static class GamePreferences
+{
+    static bool loaded;
+    static DonDifficulty difficulty;
+    static float master,atmosphere,mouseSensitivity,touchSensitivity;
+    static bool bob,quickGuide,reducedLightning,invertLook;
+    static void Load()
+    {
+        if(loaded)return;loaded=true;
+        difficulty=DonDifficultyRules.Valid(PlayerPrefs.GetInt("GameOver.DonDifficulty",1));
+        master=Mathf.Clamp01(PlayerPrefs.GetFloat("GameOver.MasterVolume",.85f));
+        atmosphere=Mathf.Clamp01(PlayerPrefs.GetFloat("GameOver.AtmosphereVolume",.75f));
+        bob=PlayerPrefs.GetInt("GameOver.CameraBob",1)!=0;
+        quickGuide=PlayerPrefs.GetInt("GameOver.QuickGuide",1)!=0;
+        reducedLightning=PlayerPrefs.GetInt("GameOver.ReducedLightning",0)!=0;
+        mouseSensitivity=FirstPersonLookRules.Sensitivity(PlayerPrefs.GetFloat("GameOver.MouseSensitivity",1));
+        touchSensitivity=FirstPersonLookRules.Sensitivity(PlayerPrefs.GetFloat("GameOver.TouchSensitivity",1));
+        invertLook=PlayerPrefs.GetInt("GameOver.InvertLook",0)!=0;
+    }
+    public static DonDifficulty Difficulty
+    {
+        get{Load();return difficulty;}
+        set{Load();difficulty=DonDifficultyRules.Valid((int)value);PlayerPrefs.SetInt("GameOver.DonDifficulty",(int)difficulty);}
+    }
+    public static float Master
+    {
+        get{Load();return master;}
+        set{Load();master=Mathf.Clamp01(value);AudioListener.volume=master;PlayerPrefs.SetFloat("GameOver.MasterVolume",master);}
+    }
+    public static float Atmosphere
+    {
+        get{Load();return atmosphere;}
+        set{Load();atmosphere=Mathf.Clamp01(value);PlayerPrefs.SetFloat("GameOver.AtmosphereVolume",atmosphere);}
+    }
+    public static bool CameraBob
+    {
+        get{Load();return bob;}
+        set{Load();bob=value;PlayerPrefs.SetInt("GameOver.CameraBob",bob?1:0);}
+    }
+    public static void Apply(){Load();AudioListener.volume=master;if(Application.isMobilePlatform){QualitySettings.vSyncCount=0;Application.targetFrameRate=60;}}
+    public static bool QuickGuide
+    {
+        get{Load();return quickGuide;}
+        set{Load();quickGuide=value;PlayerPrefs.SetInt("GameOver.QuickGuide",quickGuide?1:0);}
+    }
+    public static float MouseSensitivity
+    {
+        get{Load();return mouseSensitivity;}
+        set{Load();mouseSensitivity=FirstPersonLookRules.Sensitivity(value);PlayerPrefs.SetFloat("GameOver.MouseSensitivity",mouseSensitivity);}
+    }
+    public static float TouchSensitivity
+    {
+        get{Load();return touchSensitivity;}
+        set{Load();touchSensitivity=FirstPersonLookRules.Sensitivity(value);PlayerPrefs.SetFloat("GameOver.TouchSensitivity",touchSensitivity);}
+    }
+    public static bool InvertLook
+    {
+        get{Load();return invertLook;}
+        set{Load();invertLook=value;PlayerPrefs.SetInt("GameOver.InvertLook",value?1:0);}
+    }
+    public static Vector2 MouseLook(Vector2 delta)
+    {
+        return new Vector2(FirstPersonLookRules.Mouse(delta.x,MouseSensitivity),FirstPersonLookRules.Vertical(FirstPersonLookRules.Mouse(delta.y,MouseSensitivity),InvertLook));
+    }
+    public static Vector2 TouchLook(Vector2 delta)
+    {
+        var area=Screen.safeArea;
+        return new Vector2(FirstPersonLookRules.Touch(delta.x,area.width,area.height,TouchSensitivity),FirstPersonLookRules.Vertical(FirstPersonLookRules.Touch(delta.y,area.width,area.height,TouchSensitivity),InvertLook));
+    }
+    public static void ResetLook(){MouseSensitivity=1;TouchSensitivity=1;InvertLook=false;}
+    public static void Save(){if(loaded)PlayerPrefs.Save();}
+    public static bool ReducedLightning
+    {
+        get{Load();return reducedLightning;}
+        set{Load();reducedLightning=value;PlayerPrefs.SetInt("GameOver.ReducedLightning",value?1:0);}
+    }
+}

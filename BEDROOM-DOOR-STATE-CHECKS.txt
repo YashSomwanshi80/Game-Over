@@ -1,0 +1,12 @@
+PASS: Doors start closed
+PASS: Interaction starts a gradual opening
+PASS: Obstruction pauses movement without changing the target
+PASS: Cleared opening reaches its full limit
+PASS: Second interaction starts closing
+PASS: A blocked closing door cannot push through an occupant
+PASS: Closing can be reversed with another interaction
+PASS: Pause freezes door motion
+PASS: Host snapshot restores actual angle and target state
+PASS: Snapshot fractions clamp to the open limit
+PASS: Door movement agrees at 30 and 60 Hz
+11 door-state checks passed. Unity collision, navigation, input and LAN delivery remain unverified.

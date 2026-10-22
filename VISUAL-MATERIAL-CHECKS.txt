@@ -1,0 +1,24 @@
+PASS: Don slot 0 albedo exists
+PASS: Tapsee slot 0 albedo exists
+PASS: Tapsee slot 0 detailNormal exists
+PASS: Tapsee slot 1 albedo exists
+PASS: saved clothing smoothness matches material source map / 1
+PASS: saved clothing normal strength matches material source map / 1
+PASS: Tapsee slot 2 albedo exists
+PASS: saved clothing smoothness matches material source map / 2
+PASS: saved clothing normal strength matches material source map / 2
+PASS: Tapsee slot 3 albedo exists
+PASS: saved clothing smoothness matches material source map / 3
+PASS: saved clothing normal strength matches material source map / 3
+PASS: Tapsee slot 4 albedo exists
+PASS: Tapsee slot 6 albedo exists
+PASS: preserved Assets\Scenes\Prototype.unity
+PASS: preserved Assets\Resources\Characters\Models\Don.fbx
+PASS: preserved Assets\Resources\Characters\Models\Tapsee.fbx
+PASS: preserved Assets\Resources\Characters\Generated\DonLocomotion.controller
+PASS: preserved Assets\Resources\Characters\Generated\TapseeLocomotion.controller
+PASS: preserved Assets\Resources\Characters\Don.prefab
+PASS: preserved Assets\Resources\Characters\Tapsee.prefab
+PASS: texture-only edits follow the material-only path
+PASS: material-only refresh does not recreate controllers or prefabs
+Source/asset consistency only; Unity shader compilation, appearance and device performance remain unverified.

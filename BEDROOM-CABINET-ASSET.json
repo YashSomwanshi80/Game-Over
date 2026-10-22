@@ -1,0 +1,34 @@
+{
+  "asset": "modern_wooden_cabinet",
+  "author": "Patrik Pangerl",
+  "source": "https://polyhaven.com/a/modern_wooden_cabinet",
+  "license": "CC0",
+  "license_url": "https://polyhaven.com/license",
+  "textures": "1K albedo / normal / packed roughness-metal",
+  "converted": {
+    "asset": "modern_wooden_cabinet",
+    "vertices": 22128,
+    "triangles": 14867,
+    "bounds_min": [
+      -1.2200002670288086,
+      1.6823410987854004e-05,
+      -0.27000001072883606
+    ],
+    "bounds_max": [
+      1.220000147819519,
+      0.680159330368042,
+      0.25
+    ],
+    "materials": 1
+  },
+  "source_sha256": {
+    "Conversion-report.json": "a8d7ede606ee0f31d8344695c21dce977449ddaf97c9343bd8320afe994abddb",
+    "modern_wooden_cabinet.bin": "04e664a95f52c48d0caa8c3148ab7e4ad4a0554b37a2a5c0e39dc6ed6c46cafe",
+    "modern_wooden_cabinet.gltf": "9c0765063297018e854d11bc27da3cbab3c33904a3be2f5c15f46635df7e857f",
+    "textures\\modern_wooden_cabinet_arm_1k.jpg": "fad6df227ec6d431387b10bd244a0d087e89e6dce0b1c732df5c87f0a1def3f5",
+    "textures\\modern_wooden_cabinet_diff_1k.jpg": "e494b67439da73775413d6aaea369ae05a8ebd7705be8df08dbcd2ee4fd545e4",
+    "textures\\modern_wooden_cabinet_nor_gl_1k.jpg": "f08b3d0619a60e2eac19c9d9c0d7dc0e3eb75af2692d84b32ddfd12d857c15ab"
+  },
+  "placement": "Both existing bedroom dresser positions; uniform fit and books aligned to measured top",
+  "validation": "Engine appearance, facing and device cost still require Play-mode review."
+}

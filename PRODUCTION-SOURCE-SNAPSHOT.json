@@ -1,0 +1,373 @@
+{
+  "active_project": "C:\\Users\\HP\\Downloads\\GameOver-Prototype-Source",
+  "camera": "first-person",
+  "environment": "existing mansion only",
+  "engine": "m_EditorVersion: 6000.3.21f1\nm_EditorVersionWithRevision: 6000.3.21f1 (c02631ffc030)",
+  "packages": {
+    "dependencies": {
+      "com.unity.modules.ai": "1.0.0",
+      "com.unity.modules.animation": "1.0.0",
+      "com.unity.modules.audio": "1.0.0",
+      "com.unity.modules.imgui": "1.0.0",
+      "com.unity.modules.physics": "1.0.0",
+      "com.unity.modules.particlesystem": "1.0.0",
+      "com.unity.modules.video": "1.0.0",
+      "com.unity.modules.jsonserialize": "1.0.0"
+    }
+  },
+  "assets": [
+    {
+      "path": "Assets\\BasementLayout.cs",
+      "bytes": 4090
+    },
+    {
+      "path": "Assets\\CharacterCraft.cs",
+      "bytes": 3543
+    },
+    {
+      "path": "Assets\\ComicPresentation.cs",
+      "bytes": 5748
+    },
+    {
+      "path": "Assets\\CoutureMesh.cs",
+      "bytes": 3544
+    },
+    {
+      "path": "Assets\\FirstFloorLayout.cs",
+      "bytes": 6729
+    },
+    {
+      "path": "Assets\\FirstPersonLookRules.cs",
+      "bytes": 733
+    },
+    {
+      "path": "Assets\\FirstPersonMotor.cs",
+      "bytes": 2442
+    },
+    {
+      "path": "Assets\\FirstPersonPresence.cs",
+      "bytes": 8312
+    },
+    {
+      "path": "Assets\\GameOver.cs",
+      "bytes": 38254
+    },
+    {
+      "path": "Assets\\GameplayStorm.cs",
+      "bytes": 13100
+    },
+    {
+      "path": "Assets\\GamePreferences.cs",
+      "bytes": 3413
+    },
+    {
+      "path": "Assets\\HidingDecor.cs",
+      "bytes": 993
+    },
+    {
+      "path": "Assets\\HidingLayout.cs",
+      "bytes": 2244
+    },
+    {
+      "path": "Assets\\HumanAnatomy.cs",
+      "bytes": 3351
+    },
+    {
+      "path": "Assets\\IntroVideo.cs",
+      "bytes": 2835
+    },
+    {
+      "path": "Assets\\IntruderVisuals.cs",
+      "bytes": 10540
+    },
+    {
+      "path": "Assets\\LanPeer.cs",
+      "bytes": 3808
+    },
+    {
+      "path": "Assets\\LivingRoomArtAnchor.cs",
+      "bytes": 1526
+    },
+    {
+      "path": "Assets\\LivingRoomSlice.cs",
+      "bytes": 1571
+    },
+    {
+      "path": "Assets\\LocomotionState.cs",
+      "bytes": 2191
+    },
+    {
+      "path": "Assets\\MainMenu.cs",
+      "bytes": 6405
+    },
+    {
+      "path": "Assets\\MainPowerLayout.cs",
+      "bytes": 283
+    },
+    {
+      "path": "Assets\\MansionArchitecture.cs",
+      "bytes": 9418
+    },
+    {
+      "path": "Assets\\MansionEnvironment.cs",
+      "bytes": 16107
+    },
+    {
+      "path": "Assets\\MansionEstateDetails.cs",
+      "bytes": 17708
+    },
+    {
+      "path": "Assets\\MansionFinishDetails.cs",
+      "bytes": 5970
+    },
+    {
+      "path": "Assets\\MansionLighting.cs",
+      "bytes": 5597
+    },
+    {
+      "path": "Assets\\MansionRoomDetails.cs",
+      "bytes": 15141
+    },
+    {
+      "path": "Assets\\MansionVisuals.cs",
+      "bytes": 3900
+    },
+    {
+      "path": "Assets\\MatchOptions.cs",
+      "bytes": 452
+    },
+    {
+      "path": "Assets\\MenuStorm.cs",
+      "bytes": 6027
+    },
+    {
+      "path": "Assets\\PbrLibrary.cs",
+      "bytes": 5522
+    },
+    {
+      "path": "Assets\\QuickGuide.cs",
+      "bytes": 1978
+    },
+    {
+      "path": "Assets\\RivalMatch.cs",
+      "bytes": 30651
+    },
+    {
+      "path": "Assets\\RivalPacket.cs",
+      "bytes": 699
+    },
+    {
+      "path": "Assets\\RivalRules.cs",
+      "bytes": 716
+    },
+    {
+      "path": "Assets\\ScannedAssetLibrary.cs",
+      "bytes": 5562
+    },
+    {
+      "path": "Assets\\SecurityState.cs",
+      "bytes": 877
+    },
+    {
+      "path": "Assets\\SessionFlow.cs",
+      "bytes": 409
+    },
+    {
+      "path": "Assets\\StaticVisualBatch.cs",
+      "bytes": 2215
+    },
+    {
+      "path": "Assets\\StormWeatherRules.cs",
+      "bytes": 1974
+    },
+    {
+      "path": "Assets\\TacticalHud.cs",
+      "bytes": 24539
+    },
+    {
+      "path": "Assets\\ThrillerRendering.cs",
+      "bytes": 4861
+    },
+    {
+      "path": "Assets\\ThrillerSoundscape.cs",
+      "bytes": 4062
+    },
+    {
+      "path": "Assets\\VisualMesh.cs",
+      "bytes": 3843
+    },
+    {
+      "path": "Assets\\Editor\\BakeSoundscape.cs",
+      "bytes": 379
+    },
+    {
+      "path": "Assets\\Editor\\BuildPrototype.cs",
+      "bytes": 1958
+    },
+    {
+      "path": "Assets\\Editor\\CharacterAssetPipeline.cs",
+      "bytes": 11567
+    },
+    {
+      "path": "Assets\\Editor\\LivingRoomAuthoring.cs",
+      "bytes": 1141
+    },
+    {
+      "path": "Assets\\Editor\\MultiplayerBuildSettings.cs",
+      "bytes": 249
+    },
+    {
+      "path": "Assets\\Editor\\ProceduralSoundDesign.cs",
+      "bytes": 5141
+    },
+    {
+      "path": "Assets\\Editor\\ValidateCharacters.cs",
+      "bytes": 2524
+    },
+    {
+      "path": "Assets\\Editor\\ValidateMansion.cs",
+      "bytes": 6090
+    },
+    {
+      "path": "Assets\\Editor\\ValidatePresentation.cs",
+      "bytes": 3137
+    },
+    {
+      "path": "Assets\\Editor\\VerticalSliceImporter.cs",
+      "bytes": 2545
+    },
+    {
+      "path": "Assets\\ArtBackups\\LivingRoom\\AuthoredLivingRoom-before-mesh-refresh.prefab",
+      "bytes": 73372
+    },
+    {
+      "path": "Assets\\Resources\\Characters\\CharacterHair.shader",
+      "bytes": 747
+    },
+    {
+      "path": "Assets\\Resources\\Characters\\Don.prefab",
+      "bytes": 5070
+    },
+    {
+      "path": "Assets\\Resources\\Characters\\Tapsee.prefab",
+      "bytes": 11699
+    },
+    {
+      "path": "Assets\\Resources\\Presentation\\ArchitecturalGlass.shader",
+      "bytes": 1586
+    },
+    {
+      "path": "Assets\\Resources\\Presentation\\CoatRim.shader",
+      "bytes": 799
+    },
+    {
+      "path": "Assets\\Resources\\Presentation\\MansionPBR.shader",
+      "bytes": 3975
+    },
+    {
+      "path": "Assets\\Resources\\Presentation\\NightSky.shader",
+      "bytes": 1918
+    },
+    {
+      "path": "Assets\\Resources\\Presentation\\ScannedSurface.shader",
+      "bytes": 1289
+    },
+    {
+      "path": "Assets\\Resources\\Presentation\\StormBolt.shader",
+      "bytes": 850
+    },
+    {
+      "path": "Assets\\Resources\\Presentation\\StormRain.shader",
+      "bytes": 1590
+    },
+    {
+      "path": "Assets\\Resources\\Presentation\\ThrillerBlur.shader",
+      "bytes": 1158
+    },
+    {
+      "path": "Assets\\Resources\\Presentation\\ThrillerComposite.shader",
+      "bytes": 1159
+    },
+    {
+      "path": "Assets\\Resources\\Art\\Scans\\alarm_clock_01\\Model.bytes",
+      "bytes": 338384
+    },
+    {
+      "path": "Assets\\Resources\\Art\\Scans\\ceramic_vase_03\\Model.bytes",
+      "bytes": 366068
+    },
+    {
+      "path": "Assets\\Resources\\Art\\Scans\\modern_arm_chair_01\\Model.bytes",
+      "bytes": 294256
+    },
+    {
+      "path": "Assets\\Resources\\Art\\Scans\\modern_coffee_table_01\\Model.bytes",
+      "bytes": 181908
+    },
+    {
+      "path": "Assets\\Resources\\Art\\Scans\\potted_plant_01\\Model.bytes",
+      "bytes": 919748
+    },
+    {
+      "path": "Assets\\Resources\\Art\\Scans\\sofa_03\\Model.bytes",
+      "bytes": 277040
+    },
+    {
+      "path": "Assets\\Resources\\Characters\\Animations\\CrouchIdle.fbx",
+      "bytes": 540028
+    },
+    {
+      "path": "Assets\\Resources\\Characters\\Animations\\CrouchWalk.fbx",
+      "bytes": 482620
+    },
+    {
+      "path": "Assets\\Resources\\Characters\\Animations\\Idle.fbx",
+      "bytes": 582044
+    },
+    {
+      "path": "Assets\\Resources\\Characters\\Animations\\Run.fbx",
+      "bytes": 486668
+    },
+    {
+      "path": "Assets\\Resources\\Characters\\Animations\\Walk.fbx",
+      "bytes": 500236
+    },
+    {
+      "path": "Assets\\Resources\\Characters\\Models\\Don.fbx",
+      "bytes": 3811532
+    },
+    {
+      "path": "Assets\\Resources\\Characters\\Models\\Tapsee.fbx",
+      "bytes": 2745500
+    },
+    {
+      "path": "Assets\\Resources\\Characters\\Animations\\Don\\CrouchIdle.fbx",
+      "bytes": 536236
+    },
+    {
+      "path": "Assets\\Resources\\Characters\\Animations\\Don\\CrouchWalk.fbx",
+      "bytes": 483372
+    },
+    {
+      "path": "Assets\\Resources\\Characters\\Animations\\Don\\Idle.fbx",
+      "bytes": 574316
+    },
+    {
+      "path": "Assets\\Resources\\Characters\\Animations\\Don\\Run.fbx",
+      "bytes": 487548
+    },
+    {
+      "path": "Assets\\Resources\\Characters\\Animations\\Don\\Walk.fbx",
+      "bytes": 500764
+    },
+    {
+      "path": "Assets\\Resources\\Environment\\VerticalSlice\\AuthoredLivingRoom.prefab",
+      "bytes": 78830
+    },
+    {
+      "path": "Assets\\Resources\\Environment\\VerticalSlice\\LivingRoomSlice.fbx",
+      "bytes": 283740
+    }
+  ],
+  "verification": "File inventory, not an asset-quality or engine-runtime acceptance report."
+}

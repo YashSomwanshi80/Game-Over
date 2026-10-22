@@ -1,0 +1,11 @@
+PASS: Stairwell west wall reaches bedroom ceiling at 6.6 m
+PASS: Stairwell west wall retains its base at ground level
+PASS: Stairwell east wall reaches bedroom ceiling at 6.6 m
+PASS: Stairwell east wall retains its base at ground level
+PASS: sensor rear mounts flush to the inner stairwell wall face
+PASS: sensor is positioned overhead near the stair entrance
+PASS: old floating sensor position removed from collision and visual sources
+PASS: both balcony rail systems get an opaque base and coping
+PASS: balcony slabs use exterior stone rather than interior parquet
+PASS: balcony slabs receive the existing exterior moonlight
+Source geometry/configuration checks only; rendered appearance and Unity physics require Play-mode confirmation.

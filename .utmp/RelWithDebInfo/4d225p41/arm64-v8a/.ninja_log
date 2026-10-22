@@ -1,0 +1,23 @@
+# ninja log v5
+34	2464	8143021965590154	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	70249177afbed111
+168	837	8143021949295013	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	1a2f4058c63bca7e
+838	1193	8143021952692209	C:/Users/HP/Downloads/GameOver-Prototype-Source/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/4d225p41/obj/arm64-v8a/libswappywrapper.so	53e5bd421bd6b458
+79	2127	8143021962049298	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	fadabc49127b2ee9
+141	2383	8143021964739791	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	1c9138bafadf79d6
+115	2121	8143021962014129	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	95d652a06102e6c8
+64	2124	8143021962004125	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	30e3c4274ebe717b
+92	2129	8143021962216335	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	e0c92dc1f93d9687
+55	2136	8143021962286707	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	2c9b6d52df39c1fb
+126	2358	8143021964445705	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	25b82af9930889b6
+2464	2656	8143021967543998	C:/Users/HP/Downloads/GameOver-Prototype-Source/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/4d225p41/obj/arm64-v8a/libgame.so	2da5d0626dfb7acf
+222	822	8143091888054164	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	1a2f4058c63bca7e
+823	1541	8143091894825162	C:/Users/HP/Downloads/GameOver-Prototype-Source/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/4d225p41/obj/arm64-v8a/libswappywrapper.so	53e5bd421bd6b458
+116	3610	8143091915483802	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	30e3c4274ebe717b
+149	3614	8143091915772350	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	e0c92dc1f93d9687
+196	3617	8143091915478739	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	95d652a06102e6c8
+128	3620	8143091915600185	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	fadabc49127b2ee9
+96	3624	8143091916055285	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	2c9b6d52df39c1fb
+182	3931	8143091919136538	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	25b82af9930889b6
+209	3943	8143091919297732	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	1c9138bafadf79d6
+72	4058	8143091920449552	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	70249177afbed111
+4058	4288	8143091922776358	C:/Users/HP/Downloads/GameOver-Prototype-Source/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/4d225p41/obj/arm64-v8a/libgame.so	2da5d0626dfb7acf

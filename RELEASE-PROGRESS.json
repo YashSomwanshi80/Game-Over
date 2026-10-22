@@ -1,0 +1,1094 @@
+{
+  "date": "2026-10-21",
+  "activeProject": "C:\\Users\\HP\\Downloads\\GameOver-Prototype-Source",
+  "validationProject": "C:\\Users\\HP\\Documents\\Codex\\2026-10-18\\can-u-create-a-game-for\\work\\UnityValidation-20261021",
+  "automation": "continue-game-over-development",
+  "scope": "Continue the master prompt toward a complete game. Retain first person and the user-approved existing layout/characters.",
+  "confirmedNative": [
+    "Unity 6000.3.21f1 imported and compiled the project in an isolated validation copy",
+    "Native physics focus and actual Light state changes passed for all 25 switches",
+    "All 21 current door assemblies opened fully against actual collision",
+    "Main breaker disabled the managed lights",
+    "Full scene entered Play mode and rendered nine views with no game-code exceptions",
+    "Native gameplay smoke passed 46 checks: movement, floor support, crouch/stand, closed/open entrance collision, all 12 hiding anchors and exits, observer self-filtering with wall occlusion preserved",
+    "Native objective smoke passed 59 total checks: living-room phone focus, continuous hold, release/look-away interruption, paused call/countdown, long-frame clamp, capture priority and terminal rescue/capture outcomes; all earlier movement/hiding/occlusion checks repeated",
+    "Native lifecycle smoke passed 35 checks: Tapsee and Don initialization, actual scene retry/main-menu reloads, fresh objectives/circuits/batteries, one bootstrap, correct Don camera and native Tapsee NavMesh bot, removal of runtime Don capsule, explicit suspension/neutral controls and manual resume",
+    "AI native audit passed 66 checks after correcting initial patrol waypoint: all 13 stops on intended floors with complete native routes; 32 search samples stay reachable on observed storeys; exposed/wall-blocked/behind-view perception checks; zero game errors",
+    "Actual engine-frame NavMeshAgent traversal reached 14 route/breaker stops, with 44 assertions and zero game errors; crossed tracked door apertures only after opening. Accelerated wall-clock time, bounded simulation steps, normal agent speed; gameplay brain disabled to isolate navigation.",
+    "Native difficulty AI suite passed 138 route/search/perception assertions across Easy, Normal and Hard. Pure response/baseline/difficulty checks passed 12 assertions.",
+    "Intro native D3D11 media test passes 6 assertions: local MP4 frames, repeated focus/pause ordering, resume, skip and natural completion with zero game errors. Pure lifecycle/timeout policy passes 11 checks.",
+    "0.3.4: 48 synthetic input/layout/look assertions, 59 gameplay/hiding checks and 140 native AI/navigation checks pass. Garage entrance-to-locker path and wall alignment verified. Native D3D11 renders reviewed; zero game-code render errors, known Editor SearchDatabase error retained separately."
+  ],
+  "editorIssue": "Unity Editor SearchDatabase startup throws an index exception in the fresh validation project. It is logged separately from game runtime errors; no game exception is hidden.",
+  "latestVisualWork": "Continuous draped bedding, soft mattress/pillows and extra headboard illumination reviewed in nine native D3D11 captures at outputs/UnityReviewFinalLighting.",
+  "next": [
+    "Audit Tapsee clothing texture/UV bindings and animation setup using native render evidence",
+    "Reproduce moving/phone missing body symptom",
+    "Real two-device role/lobby/chase and sustained performance"
+  ],
+  "notVerified": [
+    "Android hardware FPS/memory/thermal behavior",
+    "Real two-device LAN session",
+    "Complete normal-user playthrough across every outcome",
+    "Commercial-release asset quality, licensing acceptance and final art approval"
+  ],
+  "important": [
+    "Do not edit outputs/GameOver as primary source; an older Editor instance has it open",
+    "Do not kill either user Editor or delete a held UnityLockfile",
+    "Never dump raw Unity process command lines: they may contain authentication parameters",
+    "Use actual native logs and captures rather than treating C# compilation as gameplay validation",
+    "Read KITCHEN-UTILITY-CUPBOARDS-FLASHLIGHTS.md and current HouseDoorLayout/HouseLightingLayout before changing geometry"
+  ],
+  "latestFix": "0.3.4 garage and mobile UX: authored shaped sedan replaces block car, car and collision moved to (13.45,0,0.5), locker backs onto north wall with clear approach; sealed concrete floor and switched locker light. Highlighted use moved inward and inactive use area permits look. Push joystick above rim to sprint with hysteresis; ease/release to walk. No separate RUN button. Bottom feedback is larger, bold and contrast-backed.",
+  "evidence": {
+    "nativeGameplay": "work/Native-Gameplay-Difficulty.log",
+    "switchDoors": "work/House-Native-QA-2.log",
+    "renders": "outputs/UnityReviewFinalLighting",
+    "android": "work/Android-Stripping-Fixed-Build.log",
+    "nativeObjective": "work/Native-Objective-Smoke.log",
+    "nativeLifecycle": "work/Native-Lifecycle-ErrorCapture.log",
+    "nativeAI": "work/Native-AI-Fixed.log",
+    "nativeAiFailureBeforeFix": "work/Native-AI-Audit.log",
+    "nativeTraversal": "work/Native-Traversal-Smoke.log",
+    "nativeDifficulty": "work/Native-AI-Difficulty.log",
+    "deviceStartup": "outputs/Android/DEVICE-STARTUP-VALIDATION.json",
+    "nativeIntro": "work/Native-Intro-Playback.log",
+    "introCandidateBuild": "work/Android-Intro-Candidate-Build.log",
+    "mobileTouch": "work/Native-Mobile-Wide-Controls-2.log",
+    "mobileGameplay": "work/Native-Mobile-Gameplay.log",
+    "mobileLifecycle": "work/Native-Mobile-Lifecycle.log",
+    "mobileBuild": "work/Android-Mobile-Controls-Final-Build.log",
+    "deviceControls": "outputs/Android/DEVICE-CONTROLS-VALIDATION.json",
+    "garageInput": "work/Native-Garage-Review.log",
+    "garageGameplay": "work/Native-Garage-Gameplay.log",
+    "garageNavigation": "work/Native-Garage-Navigation.log",
+    "garageRender": "outputs/Garage-Review-034-Accepted",
+    "garageBuild": "work/Android-Garage-034-Build.log"
+  },
+  "androidTestBuild": {
+    "status": "Succeeded",
+    "apk": "C:\\Users\\HP\\Documents\\Codex\\2026-10-18\\can-u-create-a-game-for\\outputs\\Android\\GAME-OVER-Android-garage-update.apk",
+    "sha256": "1cd88ce696ab6e7d76da37c7a30db6aedd3a47a0f235851b876fdc34ddb21e69",
+    "unityVersion": "6000.3.21f1",
+    "bytes": 67470654,
+    "errors": 0,
+    "warnings": 0,
+    "seconds": 98.5182329,
+    "development": false,
+    "deviceTested": false
+  },
+  "validationCaveat": "Lifecycle log callback now reattaches after EnterPlaymode domain reload. Repeated native lifecycle suite passes all 35 checks with zero game errors; known Editor SearchDatabase indexing error is separately filtered and retained in the raw log.",
+  "activeDeviceBug": {
+    "symptom": "User-built Android release stays on character selection; interior instead of exterior menu camera",
+    "deviceReported": "Connected device reports Samsung SM-S921B, Android 16",
+    "evidence": "work/Phone-Relaunch.log",
+    "cause": "Release engine stripping removed CapsuleCollider and SphereCollider used by GameObject.CreatePrimitive; MansionEnvironment.Ball then dereferenced absent Collider and aborted GameOver.Start",
+    "fix": "Assets/link.xml preserves runtime primitive renderer/filter and collider types; decorative sphere safely handles absent collider; Start hides optional menu storm null-safely",
+    "status": "Fixed and verified on connected phone: correct menu and Tapsee gameplay reached, zero Unity errors in captured current-process log."
+  },
+  "deviceStartupValidation": {
+    "device": "Samsung SM-S921B / Android 16",
+    "package": "com.GameOverStudentProject.GameOver",
+    "version": "0.3.1",
+    "versionCode": 31,
+    "configuration": "ARM64 IL2CPP release, engine stripping enabled",
+    "installedAsUpdate": true,
+    "deletedUserData": false,
+    "confirmed": [
+      "Correct exterior storm menu appears",
+      "Character selection shown on actual phone",
+      "First-person Tapsee gameplay and touch HUD reached",
+      "No Unity error/exception lines in current-process startup/gameplay logs"
+    ],
+    "notVerified": [
+      "Intro video completion path was not observed directly",
+      "Don role on physical phone in this run",
+      "Full touch-control playthrough or outcomes",
+      "Two-device LAN",
+      "Sustained FPS, thermals or memory"
+    ],
+    "logs": [
+      "work/Phone-Relaunch.log",
+      "work/Phone-Fixed-Startup.log",
+      "work/Phone-Fixed-Gameplay.log"
+    ],
+    "captures": [
+      "work/Phone-Fixed-Menu.png",
+      "work/Phone-Fixed-Character.png",
+      "work/Phone-Fixed-Intro.png"
+    ],
+    "note": "Phone-Fixed-Intro.png actually captures Tapsee gameplay; filename retained as captured."
+  },
+  "artifactPolicy": "Latest downloadable/root APK remains 0.3.5/code35. Active source is 0.3.10/code40 with user Don-victory audio and preceding changes. Source compilation and WAV integrity pass; native playback/scene checks and new matching Android builds remain pending. Earlier batch licensing startup blocker unresolved.",
+  "androidCandidate": {
+    "status": "Succeeded",
+    "apk": "C:\\Users\\HP\\Documents\\Codex\\2026-10-18\\can-u-create-a-game-for\\outputs\\Android\\GAME-OVER-Android-candidate-032.apk",
+    "sha256": "a2cb63b4fed6e81e6eb546491418cd6ded6bd6e94449d5e8e75455bfbabb4a11",
+    "unityVersion": "6000.3.21f1",
+    "bytes": 67451258,
+    "errors": 0,
+    "warnings": 0,
+    "seconds": 75.9144378,
+    "development": false,
+    "deviceTested": false
+  },
+  "mobileControlsWork": {
+    "sourceVersion": "0.3.3 / code33",
+    "touchChecks": 52,
+    "gameplayChecks": 59,
+    "lifecycleStatus": "35 checks passed",
+    "deviceStatus": "Installed and visually reviewed compact HUD/rail on phone; no Unity errors. Physical swipe test interrupted when user switched apps; no more phone input.",
+    "limitations": [
+      "60 FPS is a target, not measured performance",
+      "Physical two-thumb feel and multi-touch still require testing"
+    ]
+  },
+  "deviceControlsValidation": {
+    "version": "0.3.3 / code33",
+    "device": "Samsung SM-S921B / Android 16",
+    "installedBuildSha256": "f170046fc57258ad17d7e2ed67d9260fe8133e252c7fcee8959c435ae5576e6b",
+    "finalDownloadSha256": "a380292a8065b0b141a0e3ca90a25a2ce771e10d956eb1383862bee929a20bc0",
+    "finalDifference": "Final downloadable build only corrects pause help from hold sprint to tap RUN; device retains pre-help-text build with same control/gameplay code. No further installation or phone touches while user is using other apps.",
+    "confirmed": [
+      "Installed as data-preserving release update",
+      "Exterior menu and MP4 intro frames appear",
+      "First-person gameplay shows compact HUD, RUN above unchanged joystick, crouch/jump at actual right edge and CCTV above",
+      "App suspension leads to pause screen on return",
+      "Current-process Unity log contains zero game error/exception lines"
+    ],
+    "notVerified": [
+      "Physical crossing-button look gesture: test interrupted by user switching apps",
+      "Subjective two-thumb feel or full touch playthrough",
+      "Sustained 60 FPS, thermals or memory",
+      "Real two-device LAN"
+    ],
+    "captures": [
+      "work/Phone-Controls-Intro.png",
+      "work/Phone-Controls-Resume.png",
+      "work/Phone-Controls-Hud.png"
+    ],
+    "log": "work/Phone-Controls-Gameplay.log"
+  },
+  "lanTransportWork": {
+    "status": "Included in release-build candidate 0.3.5/code35; not phone-tested",
+    "changes": [
+      "Decode complete bounded UTF-8 records across TCP fragments",
+      "Stop dispatch when message handler disposes connection",
+      "Reject malformed UTF-8 and outgoing embedded line separators"
+    ],
+    "validation": {
+      "dotnetLog": "work/Lan-Transport-Tests.log",
+      "unityLog": "work/Native-Lan-Transport.log",
+      "assertionsEach": 27,
+      "scope": "Real loopback TCP sockets; includes wait assertions. No two-device LAN gameplay or Android transport validation."
+    },
+    "sourceSha256": "f39b7278e10e88e8ebdf60162685d98aad7efe4db33d7765b80fb5f7e94dd7c1",
+    "backup": "work/Before-lan-framing-fix",
+    "apkStatus": "Latest downloadable and project-root APK now contain transport repair. Previous 0.3.4 artifacts retained."
+  },
+  "androidLanCandidate": {
+    "status": "Succeeded",
+    "apk": "C:\\Users\\HP\\Documents\\Codex\\2026-10-18\\can-u-create-a-game-for\\outputs\\Android\\GAME-OVER-Android-LAN-035.apk",
+    "sha256": "fb6f9912a92dc1915264715ace4341c1fe67be9de3efc625387b003d429db5aa",
+    "unityVersion": "6000.3.21f1",
+    "bytes": 67470166,
+    "errors": 0,
+    "warnings": 0,
+    "seconds": 181.2946724,
+    "development": false,
+    "deviceTested": false
+  },
+  "rivalEyeTransitionWork": {
+    "status": "Source validated; pending next Android build",
+    "change": "Use shared eye-height smoothing for Don and LAN crouch; snap only initial attachment and hidden-state transitions. Camera rotation remains direct.",
+    "validation": {
+      "log": "work/Native-Rival-Eye-Client.log",
+      "checks": 57,
+      "gameErrors": 0,
+      "scope": "Native scene lifecycle plus actual client Receive/Present branch invoked with serialized snapshots. No real network delivery, physical camera feel or device frame pacing measured."
+    },
+    "backup": "work/Before-rival-eye-transition",
+    "files": {
+      "Assets/RivalMatch.cs": "139dc1ee16d9479238f48488bbd7377569d8433ba482da1ad02128800e15c2df",
+      "Assets/MansionVisuals.cs": "e4349ba0c400f0aea9af0b8c82eecaa9b9f3dd07bf2257e97a3ddfd4bbb8c3c5"
+    }
+  },
+  "multiplayerOpening036": {
+    "sourceVersion": "0.3.6/code36",
+    "applied": true,
+    "apkBuilt": false,
+    "features": [
+      "Bedroom 2 / outside-entrance spawns",
+      "60-second host-authoritative automatic break-in",
+      "120-second forced blackout and gated basement-office telephone",
+      "Six candle lights; existing battery flashlights retained",
+      "Loud replicated call-progress ringing",
+      "Spatial door/switch Foley, heel/toe footsteps and stronger indoor storm"
+    ],
+    "protocolVersion": 2,
+    "checks": {
+      "fullSourceCompile": "passed",
+      "pureTimingObjectiveChecks": 20,
+      "audioAssetChecks": 6,
+      "nativeUnity": "NOT RUN: batch stopped at license initialization before project import",
+      "twoDeviceLan": "not tested",
+      "devicePerformance": "not tested"
+    },
+    "notes": "MULTIPLAYER-OPENING-036.md",
+    "backup": "work/Before-multiplayer-opening-036",
+    "sourceManifest": "work/Opening-036-Source-Manifest.json"
+  },
+  "lanRoomCodeWork": {
+    "sourceVersion": "0.3.7/code37",
+    "applied": true,
+    "apkBuilt": false,
+    "joinFieldDefault": "empty",
+    "discovery": "six-digit code over LAN UDP, then existing TCP transport",
+    "checks": {
+      "roomDiscoveryAndManifest": 18,
+      "existingTcpRegression": 27,
+      "androidConditionalCompile": "passed",
+      "realAndroidWifiDiscovery": "not tested",
+      "nativeUnity": "not rerun; earlier batch license-initialization blocker remains"
+    },
+    "notes": "ROOM-CODES.md",
+    "backup": "work/Before-room-codes"
+  },
+  "basementPlay038": {
+    "sourceVersion": "0.3.8/code38",
+    "applied": true,
+    "apkBuilt": false,
+    "features": [
+      "Laundry linen trolley low hide and Don search",
+      "Blackout-safe hand-crank radio distraction / 8s noise / 24s cooldown",
+      "Workshop spare-battery drawer / one per role / up to 25% recharge"
+    ],
+    "protocolVersion": 3,
+    "checks": {
+      "androidConditionalCompile": "passed",
+      "stateAndLayout": 19,
+      "baselineAndCurrentEstateAabb": "passed: no overlaps beyond 4cm; exit clear",
+      "nativeUnity": "NOT EXECUTED: startup stalled at license initialization, owned batch stopped after 55s",
+      "actualPhoneAndLan": "not tested"
+    },
+    "notes": "BASEMENT-PLAY-038.md",
+    "backup": "work/Before-basement-play",
+    "sourceManifest": "work/Basement-Play-Source-Manifest.json"
+  },
+  "callInterruptionRepair": {
+    "status": "Applied to 0.3.8 source; not in downloadable APK",
+    "change": "Clear partial phone-call progress before Tapsee interaction branches can return early, on another action, released hold or lost eligibility. Completed calls remain unchanged.",
+    "checks": {
+      "sourceCompile": "passed",
+      "openingAndInterruptionRules": 25,
+      "nativeUnity": "not executed; prior batch license-initialization blocker remains",
+      "phoneAndLan": "not tested"
+    },
+    "log": "work/Call-Interruption-Tests.log",
+    "backup": "work/Before-call-interruption-repair"
+  },
+  "menuDoorBed039": {
+    "sourceVersion": "0.3.9/code39",
+    "applied": true,
+    "apkBuilt": false,
+    "features": [
+      "Persistent menu click feedback",
+      "Player/AI approach-side hinged door swing and replicated direction mask",
+      "Shared nearest-edge bedroom bed access in solo and LAN"
+    ],
+    "protocolVersion": 4,
+    "checks": {
+      "androidConditionalCompile": "passed",
+      "pureGeometryStateChecks": 30,
+      "nativeUnity": "not rerun; prior startup/licensing blocker unresolved",
+      "physicalAudioTouchAndLan": "not tested"
+    },
+    "notes": "DOORS-BEDS-MENU-039.md",
+    "backup": "work/Before-menu-door-bed-update",
+    "manifest": "work/Door-Bed-Menu-Source-Manifest.json"
+  },
+  "donVictoryAudio": {
+    "sourceVersion": "0.3.10/code40",
+    "applied": true,
+    "userSource": "C:\\Users\\HP\\Downloads\\don win.m4a",
+    "asset": "Assets/Resources/Presentation/Audio/DonVictory.wav",
+    "seconds": 8.4906666667,
+    "trigger": "Global outcome 2: Don captures Tapsee, both solo roles and both LAN peers",
+    "playback": "Once per result via existing ended guard; non-looping, master volume respected, pause/resume across focus/app suspension, destroyed on scene reload",
+    "checks": {
+      "fullSourceCompile": "passed",
+      "decodedWav": "48000Hz stereo S16 / 407552 frames / nonzero PCM / peak below clipping",
+      "unityPlayback": "10 native assertions passed",
+      "newApk": "0.3.10/code40 built, installed, launched; actual device reports started=True for DonVictory"
+    },
+    "backup": "work/Before-don-victory-audio",
+    "conversionEvidence": "work/Don-Victory-Decode.log",
+    "audioChecks": "work/Don-Victory-Audio-Checks.json"
+  },
+  "latestAndroidValidation040": {
+    "version": "0.3.10",
+    "versionCode": 40,
+    "apk": "C:\\Users\\HP\\Documents\\Codex\\2026-10-18\\can-u-create-a-game-for\\outputs\\Android\\GAME-OVER-Android-DonVictory-040.apk",
+    "bytes": 67889266,
+    "sha256": "73d70f47ee640398185f791e76d8c44129d7dd86990cb4035b44eccd420ccc87",
+    "build": "Native Unity Android ARM64 IL2CPP release succeeded, zero build errors/warnings",
+    "device": {
+      "model": "CPH2617",
+      "android": "15",
+      "installedAndLaunched": true,
+      "victoryPlaybackLog": "10-21 19:53:58.757 DON_VICTORY_AUDIO started=True clip=DonVictory seconds=8.49",
+      "speakerListeningVerified": false,
+      "userCurrentlyPlaying": true
+    },
+    "nativeChecks": {
+      "gameplay": 69,
+      "victoryAudio": 10,
+      "opening": "34 native assertions passed after correcting QA candle-count scope"
+    },
+    "limitations": [
+      "Physical speaker loudness not independently heard",
+      "Real two-device LAN not verified",
+      "Sustained device performance not measured"
+    ],
+    "logs": [
+      "work/Phone-040-Gameplay.log",
+      "work/Native-Victory-Audio-040.log",
+      "work/Native-Current-040-Gameplay.log",
+      "work/Native-Current-040-Opening.log",
+      "work/Android-DonVictory-040-Fixed-Build.log"
+    ]
+  },
+  "openingValidation040": {
+    "checks": 34,
+    "result": "PASS",
+    "log": "work/Native-Current-040-Opening-Scoped.log",
+    "causeOfPreviousFailure": "The test counted every child Light on the shared gameplay root, including house lights. Corrected QA-only assertion to count named candle lights, including inactive objects. All six candles existed; no runtime source change needed.",
+    "coverage": [
+      "Bedroom/outside spawns",
+      "60-second forced entry and movement gate",
+      "120-second blackout and phone gate",
+      "Breaker bypass prevention and later sabotage",
+      "Actual phone call ringing, interruption and completion",
+      "Imported Foley assets",
+      "Real local TCP handshake and version-4 objective snapshot"
+    ],
+    "limitations": [
+      "One Unity process loopback; not two physical devices",
+      "No acoustic loudness acceptance or sustained device performance"
+    ]
+  },
+  "characterFootsteps": {
+    "applied": true,
+    "tapsee": "User Light_Footstep.mp3, three extracted 0.30s mono variants",
+    "don": "User Heavy_Bootstep.mp3, three extracted 0.30s mono variants",
+    "scope": "Solo and shared host/client presentation; current movement timing, carpet attenuation and AI hearing unchanged",
+    "validation": "Native Unity compilation/import: six clips passed duration/channel/nonzero PCM checks",
+    "evidence": "work/Character-Footsteps-Native.log; work/Character-Footsteps-Assets.json",
+    "backup": "work/Before-character-footsteps",
+    "apk": "Existing code40 APK not rebuilt; phone untouched",
+    "pending": "Auditory acceptance and on-device role playback"
+  },
+  "houseAudioCctv": {
+    "applied": true,
+    "audio": [
+      "Door_Open -> DoorOpen",
+      "Door_Close -> DoorClose",
+      "Power_Cut_Shutdown -> PowerOff",
+      "CCTV_Static -> Static"
+    ],
+    "staticRule": "Audible only while viewing CCTV with mains off; silent immediately after closing CCTV or power restoration; existing pause/focus handling retained",
+    "views": [
+      "Living room",
+      "First-floor stair landing",
+      "Basement office",
+      "Basement game room"
+    ],
+    "rendering": "Single reused 640x360 camera/texture; selected view only, existing capped refresh",
+    "controls": "Previous/Next in CCTV panel, shared solo/LAN HUD",
+    "nativeChecks": 13,
+    "log": "work/House-Audio-Cctv-Native-State.log",
+    "backup": "work/Before-house-audio-cctv",
+    "pending": [
+      "Native visual inspection of new angles/housings",
+      "Physical device audio and touch acceptance",
+      "New APK not built; existing installed code40 unchanged"
+    ]
+  },
+  "exteriorCctv": {
+    "views": [
+      "Main gate",
+      "Driveway",
+      "Back garden"
+    ],
+    "totalViews": 7,
+    "power": "Same mains supply, unavailable during outage; static rule retained",
+    "rendering": "One shared render camera, selected view only",
+    "nativeChecks": 17,
+    "evidence": "work/Exterior-Cctv-Native.log",
+    "phoneTone": "User Phone_Dial_Tone imported as PhoneLine; existing call-progress-only playback",
+    "backup": "work/Before-exterior-cctv",
+    "pending": [
+      "Native render review of exterior angles",
+      "Phone touch/audio test",
+      "New APK build; installed code40 unchanged"
+    ]
+  },
+  "kitchenClearance": {
+    "cupboard": "Moved to east partition at (-1.95,0.1,4.7), back toward wall, facing west. Shared hiding/decor/nav layout now replaces legacy cupboard.",
+    "kitchen": "Counter collider, worktop, hob, sink, faucet, upper cabinets, backsplash and dressing translated +2.5m along wall; no structural rebuild.",
+    "nativeChecks": 71,
+    "evidence": "work/Kitchen-Clearance-Native-Final.log",
+    "backup": "work/Before-kitchen-clearance",
+    "pending": [
+      "Visual phone acceptance",
+      "New APK not yet built; installed APK unchanged"
+    ]
+  },
+  "latestAndroidBuild041": {
+    "version": "0.3.11/code41",
+    "build": {
+      "status": "Succeeded",
+      "apk": "C:\\Users\\HP\\Documents\\Codex\\2026-10-18\\can-u-create-a-game-for\\outputs\\Android\\GAME-OVER-Android-HouseAudio-CCTV-041.apk",
+      "sha256": "d5a3747ceea3386e0630838738819ab3b4f8970878825ce328115511aa737838",
+      "unityVersion": "6000.3.21f1",
+      "bytes": 68011986,
+      "errors": 0,
+      "warnings": 0,
+      "seconds": 108.43810529999999,
+      "development": false,
+      "deviceTested": false
+    },
+    "manifest": "aapt confirms package, version41, ARM64 and minSDK26",
+    "sourceManifest": "work/Android-041-Active-Source-Manifest.json",
+    "sourceMatch": "All active C# and imported audio matched isolated build copy before build",
+    "contains": [
+      "Character-specific user footsteps",
+      "User house SFX and dial tone",
+      "Seven CCTV views with outage static",
+      "Moved kitchen units/cupboard and garden door clearance"
+    ],
+    "checks": "71 native gameplay/clearance; 17 audio/CCTV state and selector; earlier 34 opening and 10 victory audio",
+    "device": "Not installed or tested on phone; current session untouched",
+    "pending": [
+      "Visual review of CCTV and changed kitchen",
+      "Device audio/touch acceptance",
+      "Two-device LAN acceptance",
+      "Sustained mobile performance"
+    ]
+  },
+  "tapseeVictoryAudio": {
+    "source": "Downloads/tapsee win.m4a",
+    "asset": "Assets/Resources/Presentation/Audio/TapseeVictory.wav",
+    "seconds": 22.08,
+    "trigger": "Global rescue/Tapsee win, solo roles and both LAN peer presentations",
+    "playback": "Once, nonlooping, master volume and focus/background pause-resume respected",
+    "nativeChecks": 10,
+    "log": "work/Tapsee-Victory-Native.log",
+    "backup": "work/Before-tapsee-victory",
+    "apk": "Latest code41 APK unchanged; not included yet",
+    "phoneTested": false
+  },
+  "tapseeAiRepair042": {
+    "version": "0.3.12/code42",
+    "changes": [
+      "Committed escape destinations, sampled complete paths and route-risk scoring instead of 0.7s farthest-point reselection",
+      "Threat requires same-floor line of sight and expires after three seconds",
+      "Unthreatened survivor attempts phone/power restoration",
+      "NavMesh plans movement, enabled CharacterController sweeps movement and resynchronizes agent position",
+      "Skinned mesh bounds/offscreen animation safeguard"
+    ],
+    "nativeValidation": {
+      "shortRoute": 7,
+      "traveledMetres": 21.14327,
+      "lifecycleAndClientPresentation": 57,
+      "logs": [
+        "work/Tapsee-AI-Native.log",
+        "work/Tapsee-AI-Lifecycle-Regression.log"
+      ],
+      "editorInfrastructure": "Known UnityEditor.Search.SearchDatabase indexing exception retained separately"
+    },
+    "build": {
+      "status": "Succeeded",
+      "apk": "C:\\Users\\HP\\Documents\\Codex\\2026-10-18\\can-u-create-a-game-for\\outputs\\Android\\GAME-OVER-Android-TapseeAI-042.apk",
+      "sha256": "326867d3e67e86d70e47c8b6172d9a562d0ae53a95b49b41e345aaa2cf3ac0a8",
+      "unityVersion": "6000.3.21f1",
+      "bytes": 69039790,
+      "errors": 0,
+      "warnings": 0,
+      "seconds": 90.6863418,
+      "development": false,
+      "deviceTested": false
+    },
+    "backup": "work/Before-tapsee-ai-repair",
+    "sourceManifest": "work/Tapsee-AI-042-Source-Manifest.json",
+    "pending": [
+      "Full chase difficulty acceptance",
+      "Visual verification of missing body parts",
+      "Door/furniture collision across all routes",
+      "Phone acceptance; not installed",
+      "Two-device LAN and sustained performance"
+    ]
+  },
+  "characterVisibilityRepair": {
+    "applied": true,
+    "models": "Don and Tapsee: 3 skinned renderers each",
+    "changes": [
+      "Shared CharacterVisibility.Configure invoked on both imported models",
+      "Animator AlwaysAnimate and skin updateWhenOffscreen",
+      "Disable dynamic renderer occlusion on character parts",
+      "Expand authored bounds, preserving original origin/extents instead of replacing them",
+      "Never force renderer.enabled; first-person role hiding retained"
+    ],
+    "nativeChecks": {
+      "prefabSettings": 8,
+      "lifecycleAndClientPresentation": 57
+    },
+    "logs": [
+      "work/Character-Visibility-Native.log",
+      "work/Character-Visibility-Lifecycle.log"
+    ],
+    "backup": "work/Before-character-visibility",
+    "limitations": [
+      "Reported visual disappearance not reproduced on phone/render yet; these are targeted culling safeguards",
+      "Latest code42 APK unchanged; changes not packaged",
+      "Device performance cost of always-updating two small rigs not measured"
+    ],
+    "editorInfrastructure": "Known Editor SearchDatabase indexing exception logged separately"
+  },
+  "sensorSirenAudio": {
+    "sensors": [
+      "First-floor library",
+      "First-floor tech studio",
+      "Basement office",
+      "Living room"
+    ],
+    "audio": "User MotionSensor recording: positional mono, linear distance rolloff 1.5m to18m, entry trigger and per-sensor cooldown",
+    "rules": "Requires mains power, same-floor proximity, unobstructed detection; hidden Tapsee excluded; pause/focus handled; both actors positions derived from existing host snapshots without protocol change",
+    "siren": "User PoliceSiren: background fade .08 to .65 during called/rescueRemaining in (0,10], independent of mains; stops on terminal outcome/suspends on pause",
+    "nativeChecks": 14,
+    "evidence": "work/Sensor-Siren-Final-Native.log",
+    "backup": "work/Before-sensors-siren",
+    "limitations": [
+      "Native test checks source playback, state/time rules and source configuration, not full scene trigger placement or physical loudness",
+      "Latest code42 APK unchanged; these and visibility safeguards need packaging",
+      "Real two-device acceptance pending"
+    ]
+  },
+  "multiplayerReplayNoCandles": {
+    "applied": true,
+    "candles": "Removed six candle assemblies, pedestal colliders and lights; blackout/flashlights unchanged",
+    "replay": "Play Again on online results/disconnect errors routes via existing scene cleanup to multiplayer setup; host creates new room/newcode, join input empty, no automatic restart of remote device",
+    "nativeChecks": 38,
+    "evidence": "work/Multiplayer-Replay-Native.log",
+    "backup": "work/Before-multiplayer-replay",
+    "pending": [
+      "Actual two-device replay acceptance and touch button test",
+      "New APK build; installed/latest code42 unchanged"
+    ]
+  },
+  "donEntryAudio": {
+    "source": "Downloads/don entry 1.m4a",
+    "asset": "Assets/Resources/Presentation/Audio/DonEntry.wav",
+    "seconds": 29.0133333333,
+    "trigger": "Once at active multiplayer opening after lobby confirmation, both roles hear nonspatial voice. Existing break-in effects duck during voice.",
+    "lifecycle": "No lobby autoplay or loop; pause/resume without restart; stop at60s breach or component destruction",
+    "nativeChecks": 8,
+    "evidence": "work/Don-Entry-Native-Final.log",
+    "backup": "work/Before-don-entry",
+    "phoneTested": false
+  },
+  "latestAndroidBuild043": {
+    "version": "0.3.13/code43",
+    "report": {
+      "status": "Succeeded",
+      "apk": "C:\\Users\\HP\\Documents\\Codex\\2026-10-18\\can-u-create-a-game-for\\outputs\\Android\\GAME-OVER-Android-Opening-Sensors-043.apk",
+      "sha256": "e9f1a6ff5d1b0a22ade736a41ec076cb0f65ba856d8523e3a4f14357a06abd69",
+      "unityVersion": "6000.3.21f1",
+      "bytes": 70398562,
+      "errors": 0,
+      "warnings": 0,
+      "seconds": 123.86821429999999,
+      "development": false,
+      "deviceTested": false
+    },
+    "sourceManifest": "work/Android-043-Source-Manifest.json",
+    "contains": [
+      "Don opening voice",
+      "Four motion sensors and approaching police siren",
+      "Multiplayer Play Again setup routing",
+      "Multiplayer candles removed",
+      "Shared character visibility safeguards",
+      "All earlier code42 changes"
+    ],
+    "nativeChecks": "8 opening-voice; 38 opening/replay; 14 sensor/siren; 8 character-prefab and57 lifecycle",
+    "deviceTested": false,
+    "pending": [
+      "Phone audio/controls/visual acceptance",
+      "Real two-device LAN and replay",
+      "Native rendered symptom reproduction for missing body parts",
+      "Sustained mobile performance"
+    ]
+  },
+  "rivalHudAndSensorRepair": {
+    "rootCause": "RivalMatch.Draw used old standalone camera texture and GUI.Box mobile controls, bypassing shared seven-camera TacticalHud panel.",
+    "changes": [
+      "Multiplayer uses shared CCTV panel with Previous/Next and selected-view label",
+      "Shared icon/joystick rendering replaces mobile text boxes, including flashlight/pause controls",
+      "Moved basement office sensor to game-room side of basement stair landing (-1.4,-.85,.3)"
+    ],
+    "proximity": "2.5m horizontal, eye-to-sensor height difference<1.5m, unblocked ray; audio fades from1.5m to18m",
+    "checks": "57 native lifecycle/client presentation assertions; native compile passed",
+    "evidence": "work/Rival-Hud-Native.log",
+    "backup": "work/Before-rival-hud-sensor",
+    "pending": [
+      "Physical phone UI/touch acceptance",
+      "New sensor actual room trigger acceptance",
+      "Two-device session"
+    ]
+  },
+  "latestAndroidBuild044": {
+    "version": "0.3.14/code44",
+    "report": {
+      "status": "Succeeded",
+      "apk": "C:\\Users\\HP\\Documents\\Codex\\2026-10-18\\can-u-create-a-game-for\\outputs\\Android\\GAME-OVER-Android-HUD-CCTV-044.apk",
+      "sha256": "23466c1ca6dd343c9655632067858579fa4ef455068f6b99ce7ec8d6fb3af645",
+      "unityVersion": "6000.3.21f1",
+      "bytes": 70400806,
+      "errors": 0,
+      "warnings": 0,
+      "seconds": 101.9578588,
+      "development": false,
+      "deviceTested": false
+    },
+    "sourceManifest": "work/Android-044-Source-Manifest.json",
+    "deviceTested": false,
+    "scope": "Fix multiplayer graphical controls and shared 7-view CCTV selector; relocate basement sensor to stair/game-room side"
+  },
+  "sensorActualSceneValidation": {
+    "checks": 16,
+    "failures": 0,
+    "scope": "All four actual mansion scene placements: supporting floor, clear sensor-to-player ray, native alarm source starts, power loss stops source",
+    "positions": "Library, tech studio, basement stair/game-room side, living room",
+    "log": "work/Sensor-Placement-Native.log",
+    "changes": "None required; current code44 placement data passed",
+    "limits": [
+      "Point-centre detection checks, not entire coverage-area sweep",
+      "Physical distance/loudness and two-device timing remain pending"
+    ]
+  },
+  "sensorTriggerRadiusUpdate": {
+    "horizontalMetres": 1.5,
+    "squaredThreshold": 2.25,
+    "audioFalloff": "Unchanged: 1.5m min,18m max",
+    "scope": "All4 sensors, solo/LAN; existing height/raycast/power rules retained",
+    "backup": "work/Before-sensor-radius-15",
+    "apk": "Code44 unchanged; new radius needs next build"
+  },
+  "entryLateAndPoliceLights": {
+    "entry": "DonEntryLate: full11.584s user recording, plays once at elapsed48s, finishes59.584s; no early/lobby playback, pause/resume/cutoff60s",
+    "policeLights": "Two bounded exterior red/blue shadowed spots at front drive; alternate at0.8Hz with brightness envelope growing during last10s after call, independently of mains",
+    "comfort": "ReducedLightning uses steady low-intensity colored illumination",
+    "lifecycle": "Dark before final10s; off on pause/focus loss or terminal outcome",
+    "nativeChecks": 12,
+    "evidence": "work/Entry-Police-Native.log",
+    "backup": "work/Before-entry2-police-lights",
+    "pending": [
+      "Exterior render/art acceptance",
+      "Phone audio/light intensity and two-peer timing acceptance",
+      "Next APK needed; latestcode44 unchanged"
+    ]
+  },
+  "roleReservation": {
+    "applied": true,
+    "behaviour": "Host role reserved; joining player keeps selected role. Conflict shows CHARACTER ALREADY TAKEN and PLAY AS available role; match waits until explicit selection.",
+    "hostValidation": "Acknowledgement must carry exact available role before ready; duplicate selection gets kind5 response.",
+    "protocol": 5,
+    "nativeChecks": 41,
+    "evidence": "work/Role-Reservation-Conflict-Native.log",
+    "scope": "Actual Unity/localTCP duplicate ack rejection, corrected role handshake, client conflict state; no two-device UI/touch acceptance",
+    "backup": "work/Before-role-reservation",
+    "apk": "Latestcode44 unchanged. Next release must update BOTH devices because protocol changed from4 to5."
+  },
+  "frontFacingCaptureRepair": {
+    "rootCause": "Rival host capture used only proximity and line of sight, without a facing-angle test",
+    "change": "Capture requires target within1.35m and60degree horizontal half-angle in front, limited vertical separation and clear ray. Hidden/breach gates retained.",
+    "scope": "Host-authoritative multiplayer and solo asDon; solo asTapsee already checked visibility before capture",
+    "nativeChecks": 7,
+    "evidence": "work/Capture-Facing-Native.log",
+    "backup": "work/Before-front-facing-capture",
+    "apk": "Latestcode44 unchanged; pending nextbuild alongside protocol5 changes",
+    "pending": "Actual two-device chase acceptance"
+  },
+  "donEntryFirstDelay": {
+    "startSeconds": 5,
+    "secondCueSeconds": 48,
+    "breachSeconds": 60,
+    "audioOffset": "elapsed minus5 preserves full first clip from its beginning",
+    "backup": "work/Before-entry-delay-5",
+    "apk": "Nextbuild required; code44 unchanged"
+  },
+  "latestAndroidBuild045": {
+    "version": "0.3.15/code45",
+    "protocol": 5,
+    "report": {
+      "status": "Succeeded",
+      "apk": "C:\\Users\\HP\\Documents\\Codex\\2026-10-18\\can-u-create-a-game-for\\outputs\\Android\\GAME-OVER-Android-Updated-045.apk",
+      "sha256": "1d0666dd256034cc6f6a5968bca8f440d4db2a89211913643b457f240d578553",
+      "unityVersion": "6000.3.21f1",
+      "bytes": 70766810,
+      "errors": 0,
+      "warnings": 0,
+      "seconds": 160.1866028,
+      "development": false,
+      "deviceTested": false
+    },
+    "sourceManifest": "work/Android-045-Source-Manifest.json",
+    "features": [
+      "All code44 features",
+      "Sensor trigger radius1.5m",
+      "Don first dialogue5s and second48s",
+      "Final10s approaching police lights",
+      "Role reservation and character-already-taken prompt",
+      "Front-facing capture rule"
+    ],
+    "nativeEvidence": [
+      "work/Don-Entry-Delayed-Final.log:9 checks",
+      "work/Entry-Police-Native.log:12 checks",
+      "work/Role-Reservation-Conflict-Native.log:41 checks",
+      "work/Capture-Facing-Native.log:7 checks"
+    ],
+    "device": "Not installed or device-tested. Both peers must use protocol5 sources/builds.",
+    "remaining": [
+      "Actual two-device lobby/role selection/chase/audio acceptance",
+      "Phone HUD/CCTV/light and missing-body visual confirmation",
+      "Sustained device performance"
+    ]
+  },
+  "characterVisualReview045": {
+    "shots": 8,
+    "engine": "Native Unity D3D11",
+    "output": "outputs/CharacterReview045",
+    "log": "work/Character-Visual-Review-RendererBounds.log",
+    "findings": {
+      "Don": "Four static angles show intact head, torso, arms, coat, legs and feet; intermittent moving/phone defect not reproduced.",
+      "Tapsee": "Static prefab renders in T pose; clothing/leg texture projection appears patchy and unsuitable. Requires material/rig presentation repair; not accepted as polished character."
+    },
+    "harnessCorrection": "Initial edit-mode baked-mesh bounds were scale-sensitive and failed sanity check. Actual renderer bounds are normal human scale: Don height1.98m, Tapsee1.82m. No runtime scale fix made.",
+    "sourceChanges": "None; current APKcode45 unchanged",
+    "pending": [
+      "Audit Tapsee material texture/UV bindings and animation setup",
+      "Actual moving character and phone disappearance reproduction",
+      "Real LAN/performance acceptance"
+    ]
+  },
+  "tapseeMaterialRepair": {
+    "rootCause": "FBX material order differs from SurfaceMap slot order. Unity imports Skin,BaseLayer,Overshirt,Denim,Sneakers,Ponytail,Eyes,Frame,WatchCase,WatchGlass; direct index assignment put sneaker texture on legs.",
+    "fix": "Preserve source material names on import and map names to canonical SurfaceMap slots when generating prefabs, for all3 LODs. Persist always-animated/offscreen skin visibility in generated assets.",
+    "verified": {
+      "surfaceAndPoseChecks": 35,
+      "locomotionPoses": [
+        "Idle",
+        "Walk",
+        "Run",
+        "CrouchIdle",
+        "CrouchWalk"
+      ],
+      "rigValidatorFailures": 0,
+      "lifecycleChecks": 57,
+      "renderReview": "Eight nativeD3D11 renders, idle and walk, front/back/both sides reviewed. Clothing binding correct and sampled poses not T-pose."
+    },
+    "clarification": "Prior static T-pose was an unsampled bind-pose review, not evidence of broken runtime controller. No new animation retargeting was required.",
+    "evidence": [
+      "work/Tapsee-NamedSlots-Audit.log",
+      "work/Tapsee-Repair-Verified.log",
+      "work/Tapsee-Material-Lifecycle.log",
+      "outputs/TapseeMaterialRepair",
+      "outputs/TapseeMaterialRepairWalk"
+    ],
+    "backup": "work/Before-tapsee-material-binding",
+    "remaining": [
+      "Mobile acceptance",
+      "Intermittent missing-body issue during moving gameplay not yet reproduced",
+      "Residual shirt deformation at some motion poses may need weight refinement",
+      "Sustained performance"
+    ]
+  },
+  "latestAndroidBuild046": {
+    "version": "0.3.16/code46",
+    "protocol": 5,
+    "report": {
+      "status": "Succeeded",
+      "apk": "C:\\Users\\HP\\Documents\\Codex\\2026-10-18\\can-u-create-a-game-for\\outputs\\Android\\GAME-OVER-Android-CharacterFix-046.apk",
+      "sha256": "cda63802d24658a95fb894af03edd188390570c29b76491dc0f8654bf7f2ea3c",
+      "unityVersion": "6000.3.21f1",
+      "bytes": 70773822,
+      "errors": 0,
+      "warnings": 0,
+      "seconds": 69.3775965,
+      "development": false,
+      "deviceTested": false
+    },
+    "sourceManifest": "work/Android-046-Source-Manifest.json",
+    "change": "Correct Tapsee FBX/material-name binding across LODs, persist character visibility settings",
+    "deviceTested": false,
+    "remaining": [
+      "Physical phone visual acceptance",
+      "Intermittent body disappearance during real movement",
+      "Real two-device LAN and performance"
+    ]
+  },
+  "latestJammerRelease": {
+    "date": "2026-10-22",
+    "version": "0.3.17",
+    "versionCode": 47,
+    "protocol": 6,
+    "apk": "C:\\Users\\HP\\Documents\\Codex\\2026-10-18\\can-u-create-a-game-for\\outputs\\Android\\GAME-OVER-Android-Jammer-047.apk",
+    "build": {
+      "status": "Succeeded",
+      "apk": "C:\\Users\\HP\\Documents\\Codex\\2026-10-18\\can-u-create-a-game-for\\outputs\\Android\\GAME-OVER-Android-Jammer-047.apk",
+      "sha256": "8a4362e54dcd4b14224ea8c41701d90f9586dded9f5517a142bec0f188dc4ed6",
+      "unityVersion": "6000.3.21f1",
+      "bytes": 70776738,
+      "errors": 0,
+      "warnings": 0,
+      "seconds": 114.5496249,
+      "development": false,
+      "deviceTested": false
+    },
+    "checks": {
+      "openingAndJammer": 50,
+      "lifecycle": 57,
+      "nativeCctvFeeds": 7
+    },
+    "pending": [
+      "Physical phone HUD/menu acceptance",
+      "Two-device LAN jammer test",
+      "Basement office CCTV framing improvement"
+    ]
+  },
+  "latestAudioReplacement": {
+    "version": "0.3.18",
+    "code": 48,
+    "protocol": 6,
+    "build": {
+      "status": "Succeeded",
+      "apk": "C:\\Users\\HP\\Documents\\Codex\\2026-10-18\\can-u-create-a-game-for\\outputs\\Android\\GAME-OVER-Android-EntryAudio-048.apk",
+      "sha256": "25d805c767e4dce1ba98424bfe0081957317a31d8c1eef27af331b34f0a251d5",
+      "unityVersion": "6000.3.21f1",
+      "bytes": 69962366,
+      "errors": 0,
+      "warnings": 0,
+      "seconds": 67.6584811,
+      "development": false,
+      "deviceTested": false
+    },
+    "nativeChecks": 9,
+    "source": "don main entr.m4a",
+    "delaySeconds": 5
+  },
+  "latestCctvOfficeRepair": {
+    "date": "2026-10-22",
+    "cause": "Basement office camera origin was outside west wall at x=-10.4",
+    "change": "Moved origin inside office to (-9.65,-0.65,6.5) and aimed across room",
+    "evidence": "outputs/CctvOfficeReview/CCTV-2.png",
+    "nativeRenderExit": 0,
+    "feedsRendered": 7,
+    "apkIncludesChange": false,
+    "latestApk": "0.3.18/code48"
+  },
+  "latestEndingRelease": {
+    "version": "0.3.19",
+    "code": 49,
+    "protocol": 6,
+    "build": {
+      "status": "Succeeded",
+      "apk": "C:\\Users\\HP\\Documents\\Codex\\2026-10-18\\can-u-create-a-game-for\\outputs\\Android\\GAME-OVER-Android-Finale-049.apk",
+      "sha256": "8ab28702e89593972c24ac3e420f890fe21e532e936b18bf9f1a4413b66ce2f7",
+      "unityVersion": "6000.3.21f1",
+      "bytes": 69965106,
+      "errors": 0,
+      "warnings": 0,
+      "seconds": 153.7187299,
+      "development": false,
+      "deviceTested": false
+    },
+    "victoryChecks": 20,
+    "visualAcceptance": false,
+    "includesOfficeCctvRepair": true,
+    "networkDiscoveryIssue": "Awaiting user hotspot retest; no fix claimed"
+  },
+  "latestDiscoveryRelease": {
+    "version": "0.3.20",
+    "code": 50,
+    "protocol": 6,
+    "build": {
+      "status": "Succeeded",
+      "apk": "C:\\Users\\HP\\Documents\\Codex\\2026-10-18\\can-u-create-a-game-for\\outputs\\Android\\GAME-OVER-Android-Hotspot-050.apk",
+      "sha256": "e18a86eaafbadceb1ee3985ab2d6624333ff374bd866cb8c035e6e7ac051c026",
+      "unityVersion": "6000.3.21f1",
+      "bytes": 69979282,
+      "errors": 0,
+      "warnings": 0,
+      "seconds": 168.9221495,
+      "development": false,
+      "deviceTested": false
+    },
+    "transportChecks": 34,
+    "nativeOpeningChecks": 50,
+    "phoneHotspotTested": false
+  },
+  "latestPhoneAudioRelease": {
+    "version": "0.3.21",
+    "code": 51,
+    "protocol": 7,
+    "build": {
+      "status": "Succeeded",
+      "apk": "C:\\Users\\HP\\Documents\\Codex\\2026-10-18\\can-u-create-a-game-for\\outputs\\Android\\GAME-OVER-Android-PhoneAudio-051.apk",
+      "sha256": "65728c429436863a2f8e65c987367ff639fd9faed33cfdec63a77fe187098e77",
+      "unityVersion": "6000.3.21f1",
+      "bytes": 70009378,
+      "errors": 0,
+      "warnings": 0,
+      "seconds": 164.2980637,
+      "development": false,
+      "deviceTested": false
+    },
+    "nativeChecks": {
+      "phoneSensorsMix": 19,
+      "entryTiming": 9,
+      "opening": 50
+    },
+    "physicalAudioAcceptance": false,
+    "newPhone": [
+      -4.35,
+      -2.04,
+      0.65
+    ],
+    "sensorTriggerMetres": 1.5,
+    "sensorAudibleMetres": 7.5,
+    "sensorBurstSeconds": 3
+  },
+  "latestOfficePhoneRelease": {
+    "version": "0.3.22",
+    "code": 52,
+    "protocol": 8,
+    "build": {
+      "status": "Succeeded",
+      "apk": "C:\\Users\\HP\\Documents\\Codex\\2026-10-18\\can-u-create-a-game-for\\outputs\\Android\\GAME-OVER-Android-OfficePhone-052.apk",
+      "sha256": "ad493de32d3a3f9036fdd5a47b08fb3fac580252c98790b480846cafb214f3c8",
+      "unityVersion": "6000.3.21f1",
+      "bytes": 70004670,
+      "errors": 0,
+      "warnings": 0,
+      "seconds": 178.9289508,
+      "development": false,
+      "deviceTested": false
+    },
+    "nativeOpeningChecks": 54,
+    "multiplayerHandsets": 1,
+    "location": "Basement office desk",
+    "render": "outputs/Office-Telephone-Verified.png",
+    "deviceTested": false
+  },
+  "latestSoloPhoneValidation": {
+    "date": "2026-10-22",
+    "release": "0.3.22/code52",
+    "checks": 6,
+    "evidence": "work/Solo-Phone-Verified.log",
+    "render": "outputs/Solo-Telephone-Verified.png",
+    "verified": [
+      "Detailed phone visible on living-room table",
+      "Solo Tapsee normal approach focus and actual five-second gameplay call",
+      "AI Tapsee complete NavMesh path and call when Don is elsewhere",
+      "Single handset for either solo role"
+    ],
+    "sourceChanged": false,
+    "deviceTested": false
+  },
+  "latestCharacterPreviewRelease": {
+    "version": "0.3.23",
+    "code": 53,
+    "protocol": 8,
+    "build": {
+      "status": "Succeeded",
+      "apk": "C:\\Users\\HP\\Documents\\Codex\\2026-10-18\\can-u-create-a-game-for\\outputs\\Android\\GAME-OVER-Android-CharacterSelect-053.apk",
+      "sha256": "c9219c89a226f42d85df8c22ab2a3974f939e6d8b4327320d687de7cc33a0362",
+      "unityVersion": "6000.3.21f1",
+      "bytes": 70020822,
+      "errors": 0,
+      "warnings": 0,
+      "seconds": 93.97035969999999,
+      "development": false,
+      "deviceTested": false
+    },
+    "nativePreviewChecks": 15,
+    "portraitsInspected": true,
+    "phoneLayoutTested": false
+  },
+  "latestLateCallRelease": {
+    "version": "0.3.24",
+    "code": 54,
+    "protocol": 9,
+    "build": {
+      "status": "Succeeded",
+      "apk": "C:\\Users\\HP\\Documents\\Codex\\2026-10-18\\can-u-create-a-game-for\\outputs\\Android\\GAME-OVER-Android-LateCall-054.apk",
+      "sha256": "ada17e2afe3e5350acc7a14ea458c17e47760fcf2504794f4be8afff18ecebb9",
+      "unityVersion": "6000.3.21f1",
+      "bytes": 70021282,
+      "errors": 0,
+      "warnings": 0,
+      "seconds": 86.4211428,
+      "development": false,
+      "deviceTested": false
+    },
+    "nativeChecks": {
+      "rules": 11,
+      "openingAndLateHostCall": 55,
+      "soloAndAI": 7
+    },
+    "rule": "Completed call: survive min(100 seconds, remaining match time); capture still wins; no call loses at timeout",
+    "deviceTested": false
+  },
+  "latestCaptureParityRelease": {
+    "version": "0.3.25",
+    "code": 55,
+    "protocol": 9,
+    "build": {
+      "status": "Succeeded",
+      "apk": "C:\\Users\\HP\\Documents\\Codex\\2026-10-18\\can-u-create-a-game-for\\outputs\\Android\\GAME-OVER-Android-CaptureParity-055.apk",
+      "sha256": "f05a0b450c4b25f232b14dd93d1c4dc6fb4b10de453f77b967a6a01b54752b7f",
+      "unityVersion": "6000.3.21f1",
+      "bytes": 70022174,
+      "errors": 0,
+      "warnings": 0,
+      "seconds": 86.9597986,
+      "development": false,
+      "deviceTested": false
+    },
+    "nativeCaptureChecks": {
+      "solo": 8,
+      "rivalHost": 7
+    },
+    "deviceTested": false
+  },
+  "latestMinimapRelease": {
+    "version": "0.3.26",
+    "code": 56,
+    "protocol": 9,
+    "build": {
+      "status": "Succeeded",
+      "apk": "C:\\Users\\HP\\Documents\\Codex\\2026-10-18\\can-u-create-a-game-for\\outputs\\Android\\GAME-OVER-Android-Minimap-056.apk",
+      "sha256": "7dbceb96cd14721c58f250be64d3bce266a65d8a81f2656cb60f4e9c502948aa",
+      "unityVersion": "6000.3.21f1",
+      "bytes": 70029802,
+      "errors": 0,
+      "warnings": 0,
+      "seconds": 92.3696221,
+      "development": false,
+      "deviceTested": false
+    },
+    "nativeMinimapChecks": 17,
+    "atlasImagesInspected": 3,
+    "deviceTested": false
+  }
+}

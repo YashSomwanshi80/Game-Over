@@ -1,0 +1,11 @@
+PASS: Downstairs west side stops exactly at ground level
+PASS: Downstairs west side still reaches the basement floor
+PASS: Downstairs west side keeps its original horizontal footprint
+PASS: Downstairs east side stops exactly at ground level
+PASS: Downstairs east side still reaches the basement floor
+PASS: Downstairs east side keeps its original horizontal footprint
+PASS: existing ground-floor walls cover the repaired side above the slab / 1.4
+PASS: existing wall face aligns with basement wall face / 1.4
+PASS: existing ground-floor walls cover the repaired side above the slab / 3.9
+PASS: existing wall face aligns with basement wall face / 3.9
+Geometry-source checks only; physical navigation and rendered seams still need Unity validation.

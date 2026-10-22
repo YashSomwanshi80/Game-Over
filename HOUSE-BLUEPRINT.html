@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GAME OVER - Mansion Blueprint</title>
+<style>
+:root{--bg:#0d2a4a;--line:#8fd0ff;--wall:#cfeaff;--dim:#5fa8e0;--door:#ffcf5a;--stair:#7fb6e6;--furn:#3b78b0;--txt:#e8f5ff}
+body{margin:0;background:var(--bg);color:var(--txt);font:14px/1.4 system-ui,Segoe UI,sans-serif}
+h1{margin:0;padding:18px 20px 2px;font-size:22px;letter-spacing:.08em}
+p.sub{margin:0;padding:0 20px 10px;color:var(--dim)}
+nav{display:flex;gap:8px;padding:8px 20px;flex-wrap:wrap}
+nav button{background:#12406e;color:var(--txt);border:1px solid var(--line);padding:8px 14px;border-radius:6px;cursor:pointer;font:inherit}
+nav button.on{background:var(--line);color:#06223d}
+.wrap{padding:0 20px 20px;overflow:auto}
+svg{background:
+ linear-gradient(rgba(143,208,255,.10) 1px,transparent 1px) 0 0/30px 30px,
+ linear-gradient(90deg,rgba(143,208,255,.10) 1px,transparent 1px) 0 0/30px 30px,var(--bg);
+ border:2px solid var(--line);border-radius:6px;max-width:100%;height:auto}
+.legend{display:flex;gap:18px;flex-wrap:wrap;padding:0 20px 24px;color:var(--dim);font-size:13px}
+.legend i{display:inline-block;width:18px;height:10px;margin-right:6px;vertical-align:middle}
+</style></head><body>
+<h1>GAME OVER - MANSION BLUEPRINT</h1>
+<p class="sub">Plan view, north up. Built from the game's own layout data (GameOver.cs, FirstFloorLayout.cs, BasementLayout.cs, HouseDoorLayout.cs). 1 grid square = 1 m. Floor-to-floor: basement -3.4 m, ground 0, first +3.4 m.</p>
+<nav id="tabs"></nav>
+<div class="wrap" id="view"></div>
+<div class="legend">
+ <span><i style="background:var(--wall)"></i>Wall</span>
+ <span><i style="background:var(--door)"></i>Door (opening width)</span>
+ <span><i style="background:#6fd0ff;opacity:.7"></i>Window</span>
+ <span><i style="background:var(--stair)"></i>Stairs</span>
+ <span><i style="background:var(--furn)"></i>Furniture / fixtures</span>
+ <span><i style="background:#ff4d4d;border-radius:5px;width:10px"></i>CCTV camera (number = CAM id, cone = view direction)</span>
+</div>
+<script>
+const S=30, T=.2;
+// rect helpers use centre-free "x0,z0,x1,z1" metres; z is north (drawn upward).
+const W=(x0,z0,x1,z1)=>({k:'w',x0,z0,x1,z1});
+const F=(x0,z0,x1,z1,label)=>({k:'f',x0,z0,x1,z1,label});
+const ST=(x0,z0,x1,z1)=>({k:'s',x0,z0,x1,z1});
+const WIN=(x0,z0,x1,z1)=>({k:'win',x0,z0,x1,z1});
+const D=(x,z,width,along,name)=>({k:'d',x,z,width,along,name}); // along 'x' = wall runs along x
+const L=(x,z,text,size)=>({k:'l',x,z,text,size:size||13});
+const R=(x0,z0,x1,z1,label)=>({k:'r',x0,z0,x1,z1,label});
+const C=(n,x,z,tx,tz,name)=>({k:'c',n,x,z,tx,tz,name}); // CCTV: position + target from HouseCctv.cs
+
+const floors={
+'Ground floor':{box:[-18,-9,18,8],items:[
+ R(-10,-7,10,7),R(10,-7,16,7),R(-16,-5,-10,3),
+ // exterior walls
+ W(-10,7,10,7),W(-10,-7,-4.8,-7),W(-2.4,-7,-1.1,-7),W(1.1,-7,4.8,-7),W(7.2,-7,10,-7),
+ W(-10,-7,-10,-2.2),W(-10,.2,-10,7),W(10,1,10,7),W(10,-7,10,-1),
+ W(10,7,16,7),W(10,-7,16,-7),W(16,-7,16,7),
+ WIN(-5.55,7,-3.45,7),WIN(5.95,7,8.05,7),WIN(-4.8,-7,-2.4,-7),WIN(4.8,-7,7.2,-7),
+ // store room
+ W(-6,-7,-6,-3.2),W(-10,-3.2,-7.6,-3.2),W(-6.4,-3.2,-6,-3.2),F(-9.8,-6.6,-9,-3.8,'shelves'),
+ // stair + basement entrance + washroom
+ W(-1.3,.5,-1.3,5.6),W(1.3,.5,1.3,7),W(3.8,3,3.8,7),W(2.6,3,3.8,3),W(1.3,3,1.4,3),
+ ST(-1.2,.65,1.2,5.75),
+ // furniture
+ F(-9.55,1,-8.05,6,'kitchen counter'),F(-4.62,-1,-3.38,1,'dining table'),
+ F(5.24,-3.6,8.76,-2.4,'sofa'),F(5,-.5,7,.5,'coffee'),F(8.3,-1.8,9.3,-1),F(3.7,-1.5,4.8,-.7),
+ F(8.9,5.6,9.5,6.2),F(6,3.5,8,4.5,'phone desk'),F(12.25,-1.85,14.65,2.85,'car'),
+ // doors
+ D(0,-7,2.2,'x','Main entrance'),D(-10,-1,2.4,'z','Garden room'),D(-7,-3.2,1.2,'x','Kitchen store'),
+ D(10,0,2,'z','Garage'),D(2,3,1.2,'x','Basement entrance'),
+ // labels
+ L(-6,-5.3,'STORE'),L(-6,4.2,'KITCHEN / DINING',14),L(-6,-.2,'(dining)',11),
+ L(6.5,-5.5,'LIVING ROOM',14),L(6,1.6,'LIVING / PHONE',11),L(0,-3.5,'ENTRANCE HALL',12),
+ L(0,2.6,'CENTRAL STAIR  (17 risers)',11),L(2.55,5.2,'STAIR TO',11),L(2.55,4.7,'BASEMENT',11),
+ L(13,5.4,'GARAGE',14),L(-13,-1,'GARDEN ROOM',12),L(-13,-1.7,'(estate, per door data)',10),
+ L(0,-8.2,'FRONT (SOUTH)',12),
+ C(1,9.5,6.5,4.5,-1,'LIVING ROOM'),C(6,16.5,-7.6,13.5,-14,'EXT / DRIVEWAY')
+]},
+'First floor':{box:[-15,-11,15,8],items:[
+ R(-10,-7,-1.4,7),R(1.4,-7,10,7),R(-1.4,-7,1.4,0.5),
+ R(-12,-4,-10,4),R(-1.4,-9,1.4,-7),
+ // exterior
+ W(-10,7,10,7),W(-10,-7,-1.4,-7),W(1.4,-7,10,-7),W(-10,-7,-10,-2.8),W(-10,2.8,-10,7),W(10,-7,10,7),
+ WIN(-3.5,-7,-1.4,-7),WIN(1.4,-7,3.5,-7),
+ // hall partitions + stairwell
+ W(-1.3,-7,-1.3,-4),W(-1.3,-2,-1.3,.5),W(1.3,-7,1.3,-4),W(1.3,-2,1.3,.5),
+ W(-1.3,.5,-1.3,5.6),W(1.3,.5,1.3,5.6),W(-2.3,6.8,2.3,6.8),
+ ST(-1.2,.65,1.2,5.75),
+ // balconies
+ W(-12,-4,-12,4),W(-12,4,-10,4),W(-12,-4,-10,-4),W(-1.4,-9,1.4,-9),W(-1.4,-9,-1.4,-7),W(1.4,-9,1.4,-7),
+ // washrooms
+ W(-4.2,2.5,-1.4,2.5),W(-4.2,5.5,-1.4,5.5),W(-4.2,2.5,-4.2,3.1),W(-4.2,4.9,-4.2,5.5),
+ W(7.4,2.5,9.9,2.5),W(7.4,6.8,9.9,6.8),W(7.4,2.5,7.4,3.1),W(7.4,4.9,7.4,6.8),
+ F(-3.2,5,-2.4,5.5,'basin'),F(-2.1,2.5,-1.4,3.3,'wc'),F(8.2,6.3,9.2,6.8),F(9.2,3.1,9.9,3.9),
+ // library + studio
+ W(-9.9,2.1,-7.8,2.1),W(-6.2,2.1,-4.3,2.1),W(-4.3,2.1,-4.3,2.5),W(1.4,2.1,3.6,2.1),W(5.2,2.1,7.3,2.1),W(7.3,2.1,7.3,2.5),
+ F(-9.4,6.2,-4.9,6.8,'bookcase'),F(-9.2,3.6,-8.2,4.6,'seat'),F(3.2,5.7,6,6.7,'desk'),F(4.3,4.8,4.9,5.4),
+ WIN(-8.5,7,-6,7),WIN(1.3,7,3.7,7),
+ // beds / dresser
+ F(-7.3,-6.7,-4.7,-3.0,'bed'),F(3.7,-6.7,6.3,-3.0,'bed'),F(-9.85,-4.5,-9.3,-2.1,'dresser'),F(9.3,-2.7,9.85,-.3,'dresser'),
+ F(-3.2,-5.2,-2.5,-4.5),F(7.8,-5.2,8.5,-4.5),
+ WIN(-10,-.5,-10,.5),WIN(10,-2.7,10,-.3),
+ // doors
+ D(-1.3,-3,2,'z','Bedroom 1'),D(1.3,-3,2,'z','Bedroom 2'),D(-7,2.1,1.6,'x','Library'),D(4.4,2.1,1.6,'x','Tech studio'),
+ D(-10,0,2.8,'z','West balcony'),D(0,-7,2.8,'x','Front balcony'),D(-4.2,4.2,1.4,'z','Washroom 1'),D(7.4,4.2,1.4,'z','Washroom 2'),
+ // labels
+ L(-6,-.8,'WEST BEDROOM',14),L(5.7,-.8,'EAST BEDROOM',14),L(0,-3.5,'HALL',12),
+ L(-7.1,4.8,'LIBRARY',14),L(4.4,3.2,'TECH STUDIO',13),L(-2.8,3.9,'WASHROOM 1',9),L(8.6,5.1,'WASHROOM 2',9),
+ L(0,3,'STAIRWELL',11),L(0,6.3,'LANDING',10),L(-11,0,'BALCONY',11),L(0,-8,'BALCONY',11),
+ C(2,.9,1.5,0,-2,'STAIRS / HALL'),C(5,-3,-8.1,0,-16.7,'EXT / MAIN GATE'),C(7,8.8,7.6,0,14,'EXT / BACK GARDEN')
+]},
+'Basement':{box:[-12,-9,12,9],items:[
+ R(-10,-7,10,7),
+ // shell
+ W(-10,7,10,7),W(-10,-7,10,-7),W(-10,-7,-10,7),W(10,-7,10,7),
+ // office/gym
+ W(-5,4.4,-5,7),W(-5,0,-5,2.6),W(-5,-2.6,-5,0),W(-5,-7,-5,-4.4),W(-10,0,-8.3,0),W(-6.7,0,-5,0),
+ // stair block
+ W(1.4,3,1.4,7),W(3.8,3,3.8,7),W(2.6,3,2.6,6.4),ST(1.5,3.15,2.5,5.8),ST(2.7,3.4,3.7,5.6),
+ // safe room
+ W(-1.4,2,-1.4,7),W(1.4,2,1.4,3),W(-1.4,2,-.8,2),W(.8,2,1.4,2),
+ // east rooms
+ W(5,-7,5,-1.2),W(5,1.2,5,7),
+ W(1.4,2,2.4,2),W(4.0,2,5,2),W(5,2,6.7,2),W(8.3,2,10,2),
+ W(1.4,-2,2.7,-2),W(3.7,-2,5,-2),W(1.4,-7,1.4,-2),
+ // furniture
+ F(-9.3,5.3,-6.7,6.3,'desk'),F(-8.7,5.9,-7.3,6.1),F(-8.3,4.4,-7.7,5),F(-3.9,1.4,-2.5,4,'pool table'),
+ F(-8.55,-4.1,-7.45,-1.9,'bench'),F(-9.6,-6.4,-8.8,-4.6,'rack'),
+ F(4.2,3.8,4.8,6.2,'shelves'),F(4.2,6.2,4.8,6.8),F(8.2,5.4,9.2,6.4,'washer'),F(6.9,5.4,7.9,6.4,'dryer'),F(5.6,5.4,6.4,6.2,'sink'),
+ F(6.7,-6.3,9.3,-5.3,'bench'),F(3,-6.3,4,-5.3,'heater'),F(-.65,5.8,.65,6.6,'cabinet'),
+ // doors
+ D(-5,3.5,1.8,'z','Basement office'),D(-7.5,0,1.6,'x','Archway (2nd exit)'),D(-5,-3.5,1.8,'z','Gym'),D(3.2,2,1.6,'x','Storage'),D(7.5,2,1.6,'x','Laundry'),
+ D(3.2,-2,1.05,'x','Utility room'),D(0,2,1.6,'x','Safe room'),D(5,0,2.4,'z','Workshop'),
+ // labels
+ L(-7.5,2.4,'OFFICE',14),L(-7.5,-.8,'GYM',14),L(-1.8,-2,'GAME ROOM / CORRIDOR',13),L(-1.8,-3,'(pool table, radio console)',10),
+ L(0,4.5,'SAFE',12),L(0,3.9,'ROOM',12),L(4.4,2.6,'STORAGE',9),L(3.2,0.3,'EAST HALL',10),
+ L(7.5,4.2,'LAUNDRY',13),L(8,-2.2,'WORKSHOP',14),L(3.2,-4,'UTILITY',12),L(2.6,7.6,'STAIR FROM GROUND',10),
+ C(3,-9.65,6.5,-7.1,2.5,'OFFICE'),C(4,4.7,1.5,1.5,-1.2,'EAST HALL')
+]}
+};
+const ns='http://www.w3.org/2000/svg';
+function el(t,a,p){const e=document.createElementNS(ns,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+function draw(name){
+ const fl=floors[name],[bx0,bz0,bx1,bz1]=fl.box;
+ const w=(bx1-bx0)*S,h=(bz1-bz0)*S;
+ const svg=el('svg',{viewBox:`0 0 ${w} ${h}`,width:w,height:h});
+ const X=x=>(x-bx0)*S, Y=z=>(bz1-z)*S;
+ const rect=(x0,z0,x1,z1,a)=>el('rect',Object.assign({x:X(Math.min(x0,x1)),y:Y(Math.max(z0,z1)),width:Math.abs(x1-x0)*S,height:Math.abs(z1-z0)*S},a),svg);
+ const order=['r','s','f','w','win','d','c','l'];
+ for(const kind of order)for(const it of fl.items.filter(i=>i.k===kind)){
+  if(kind==='r')rect(it.x0,it.z0,it.x1,it.z1,{fill:'rgba(143,208,255,.07)',stroke:'#5fa8e0','stroke-dasharray':'4 3','stroke-width':1});
+  if(kind==='w'){const horiz=it.z0===it.z1;const t=T/2;
+   rect(horiz?it.x0:it.x0-t,horiz?it.z0-t:it.z0,horiz?it.x1:it.x1+t,horiz?it.z1+t:it.z1,{fill:'#cfeaff',stroke:'#fff','stroke-width':.5})}
+  if(kind==='win'){const horiz=it.z0===it.z1;const t=.14;
+   rect(horiz?it.x0:it.x0-t,horiz?it.z0-t:it.z0,horiz?it.x1:it.x1+t,horiz?it.z1+t:it.z1,{fill:'#6fd0ff',opacity:.85})}
+  if(kind==='s'){rect(it.x0,it.z0,it.x1,it.z1,{fill:'rgba(127,182,230,.25)',stroke:'#7fb6e6'});
+   const n=Math.round((it.z1-it.z0)/.3);const step=(it.z1-it.z0)/n;
+   for(let i=1;i<n;i++)el('line',{x1:X(it.x0),x2:X(it.x1),y1:Y(it.z0+i*step),y2:Y(it.z0+i*step),stroke:'#7fb6e6','stroke-width':.7},svg);}
+  if(kind==='f'){rect(it.x0,it.z0,it.x1,it.z1,{fill:'rgba(59,120,176,.55)',stroke:'#6fb0ea','stroke-width':1});
+   if(it.label&&(it.x1-it.x0)*S>34)el('text',{x:X((it.x0+it.x1)/2),y:Y((it.z0+it.z1)/2)+3,'text-anchor':'middle','font-size':9,fill:'#d6ecff'},svg).textContent=it.label;}
+  if(kind==='d'){const hw=it.width/2;const a=it.along==='x';
+   const x0=a?it.x-hw:it.x-.12,x1=a?it.x+hw:it.x+.12,z0=a?it.z-.12:it.z-hw,z1=a?it.z+.12:it.z+hw;
+   rect(x0,z0,x1,z1,{fill:'#ffcf5a',opacity:.9});
+   // swing arc
+   const r=hw*2*.9;const hx=a?it.x-hw:it.x,hz=a?it.z:it.z-hw;
+   const sx=X(hx),sy=Y(hz);const ex=a?sx:sx+r*S/2*1,ey=a?sy-r*S/2:sy;
+   const p=a?`M ${sx} ${sy} L ${sx+it.width*S} ${sy} A ${it.width*S} ${it.width*S} 0 0 0 ${sx} ${sy-it.width*S} Z`
+            :`M ${sx} ${sy} L ${sx} ${sy-it.width*S} A ${it.width*S} ${it.width*S} 0 0 1 ${sx+it.width*S} ${sy} Z`;
+   el('path',{d:p,fill:'rgba(255,207,90,.08)',stroke:'#ffcf5a','stroke-width':.7,'stroke-dasharray':'3 2'},svg);
+   const t=el('text',{x:X(it.x)+(a?0:8),y:Y(it.z)+(a?-9:-6),'text-anchor':a?'middle':'start','font-size':8.5,fill:'#ffcf5a'},svg);t.textContent=it.name;}
+  if(kind==='c'){const dx=it.tx-it.x,dz=it.tz-it.z,len=Math.hypot(dx,dz),ang=Math.atan2(dz,dx),fov=.5,r=3.2;
+   const pt=a=>[X(it.x+Math.cos(a)*r),Y(it.z+Math.sin(a)*r)];const [ax,ay]=pt(ang-fov),[bx,by]=pt(ang+fov);
+   el('path',{d:`M ${X(it.x)} ${Y(it.z)} L ${ax} ${ay} A ${r*S} ${r*S} 0 0 0 ${bx} ${by} Z`,fill:'rgba(255,90,90,.18)',stroke:'#ff6b6b','stroke-width':.8,'stroke-dasharray':'3 2'},svg);
+   el('circle',{cx:X(it.x),cy:Y(it.z),r:8,fill:'#ff4d4d',stroke:'#fff','stroke-width':1.5},svg);
+   el('text',{x:X(it.x),y:Y(it.z)+3.5,'text-anchor':'middle','font-size':9,'font-weight':700,fill:'#fff'},svg).textContent=it.n;
+   el('text',{x:X(it.x),y:Y(it.z)-12,'text-anchor':'middle','font-size':9,fill:'#ff9a9a'},svg).textContent='CAM '+String(it.n).padStart(2,'0')+' '+it.name;}
+  if(kind==='l'&&it.size>0){const t=el('text',{x:X(it.x),y:Y(it.z),'text-anchor':'middle','font-size':it.size,fill:'#e8f5ff','font-weight':it.size>=13?600:400,'letter-spacing':it.size>=13?'.06em':0},svg);t.textContent=it.text}
+ }
+ // dimension ticks along bottom and left for the main footprint
+ const dim=(txt,x0,z0,x1,z1,off)=>{const y=Y(z0)+off;el('line',{x1:X(x0),x2:X(x1),y1:y,y2:y,stroke:'#5fa8e0'},svg);
+  el('text',{x:X((x0+x1)/2),y:y+13,'text-anchor':'middle','font-size':11,fill:'#5fa8e0'},svg).textContent=txt};
+ dim('20 m main house width',-10,-7,10,-7,name==='First floor'?(-9.4-(-7))*-S+10:30);
+ // compass
+ const cx=w-40,cy=48;el('circle',{cx,cy,r:22,fill:'none',stroke:'#8fd0ff'},svg);
+ el('path',{d:`M ${cx} ${cy-20} L ${cx-6} ${cy+4} L ${cx} ${cy} L ${cx+6} ${cy+4} Z`,fill:'#8fd0ff'},svg);
+ el('text',{x:cx,y:cy-26,'text-anchor':'middle','font-size':12,fill:'#8fd0ff'},svg).textContent='N';
+ return svg}
+const tabs=document.getElementById('tabs'),view=document.getElementById('view');
+function show(n){view.replaceChildren(draw(n));[...tabs.children].forEach(b=>b.classList.toggle('on',b.textContent===n))}
+Object.keys(floors).forEach(n=>{const b=document.createElement('button');b.textContent=n;b.onclick=()=>show(n);tabs.appendChild(b)});
+show('Ground floor');
+</script></body></html>

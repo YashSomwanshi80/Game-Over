@@ -1,0 +1,160 @@
+{
+  "surfaces": [
+    {
+      "character": "Don",
+      "slot": 0,
+      "albedo": "Don_Albedo.png",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "smoothness": 0.43,
+      "cutout": false
+    },
+    {
+      "character": "Tapsee",
+      "slot": 0,
+      "albedo": "Tapsee_Skin_Albedo.png",
+      "detailNormal": "Tapsee_SkinDetail_Normal.png",
+      "color": [
+        0.8,
+        0.62,
+        0.46,
+        1
+      ],
+      "smoothness": 0.29,
+      "cutout": false
+    },
+    {
+      "character": "Tapsee",
+      "slot": 1,
+      "albedo": "Tapsee_Overshirt_Albedo.png",
+      "detailNormal": "",
+      "color": [
+        0.48,
+        0.57,
+        0.63,
+        1
+      ],
+      "smoothness": 0.12,
+      "cutout": false,
+      "normalStrength": 0.32
+    },
+    {
+      "character": "Tapsee",
+      "slot": 2,
+      "albedo": "Tapsee_Denim_Albedo.png",
+      "detailNormal": "",
+      "color": [
+        0.16,
+        0.2,
+        0.24,
+        1
+      ],
+      "smoothness": 0.1,
+      "cutout": false,
+      "normalStrength": 0.3
+    },
+    {
+      "character": "Tapsee",
+      "slot": 3,
+      "albedo": "Tapsee_Sneakers_Albedo.png",
+      "detailNormal": "",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "smoothness": 0.18,
+      "cutout": false,
+      "normalStrength": 0.35
+    },
+    {
+      "character": "Tapsee",
+      "slot": 4,
+      "albedo": "Tapsee_Ponytail_Hair.png",
+      "detailNormal": "",
+      "color": [
+        0.55,
+        0.43,
+        0.35,
+        1
+      ],
+      "smoothness": 0.22,
+      "cutout": true
+    },
+    {
+      "character": "Tapsee",
+      "slot": 5,
+      "albedo": "",
+      "detailNormal": "",
+      "color": [
+        0.007,
+        0.008,
+        0.01,
+        1
+      ],
+      "smoothness": 0.42,
+      "cutout": false
+    },
+    {
+      "character": "Tapsee",
+      "slot": 6,
+      "albedo": "Tapsee_Eyes_Albedo.png",
+      "detailNormal": "",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "smoothness": 0.72,
+      "cutout": false
+    },
+    {
+      "character": "Tapsee",
+      "slot": 7,
+      "albedo": "",
+      "detailNormal": "",
+      "color": [
+        0.025,
+        0.03,
+        0.035,
+        1
+      ],
+      "smoothness": 0.55,
+      "cutout": false
+    },
+    {
+      "character": "Tapsee",
+      "slot": 8,
+      "albedo": "",
+      "detailNormal": "",
+      "color": [
+        0.006,
+        0.02,
+        0.025,
+        1
+      ],
+      "smoothness": 0.85,
+      "cutout": false
+    },
+    {
+      "character": "Tapsee",
+      "slot": 9,
+      "albedo": "",
+      "detailNormal": "",
+      "color": [
+        0.022,
+        0.026,
+        0.031,
+        1
+      ],
+      "smoothness": 0.1,
+      "cutout": false
+    }
+  ]
+}

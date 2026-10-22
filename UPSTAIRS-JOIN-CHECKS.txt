@@ -1,0 +1,5 @@
+PASS: Library return joins both the suite partition and bathroom wall without an open seam
+PASS: Studio return joins both the suite partition and bathroom wall without an open seam
+PASS: duplicate balcony glass and base layers removed
+PASS: original solid balcony barrier renderers are enabled
+Active-source route and hiding checks also passed; post-fix Unity rendering remains unverified.

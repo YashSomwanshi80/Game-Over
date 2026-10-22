@@ -1,0 +1,17 @@
+# Unity generated
+/Library/
+/Temp/
+/Obj/
+/Logs/
+/UserSettings/
+/Builds/
+/MemoryCaptures/
+*.csproj
+*.sln
+*.pidb
+*.suo
+*.user
+# local working files and old test builds
+/work/
+/GameOver*.apk
+/outputs/

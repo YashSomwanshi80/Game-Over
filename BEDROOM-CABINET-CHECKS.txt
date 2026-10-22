@@ -1,0 +1,6 @@
+Converted primitives: 3
+Triangles: 14867
+Fitted dimensions (metres): [2.4, 0.6689925160518456, 0.5114753334280819]
+PASS: finite mesh data, valid indices/materials, texture paths/import data and collision enclosure.
+PASS: books use fitted top height; original procedural dresser mesh is skipped after successful scan placement.
+Post-fix Unity rendering and Android performance not verified.
