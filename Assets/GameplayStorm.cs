@@ -44,7 +44,7 @@ public sealed class GameplayStorm : MonoBehaviour
         thunder.spatialBlend=1;thunder.minDistance=250;thunder.maxDistance=2200;thunder.dopplerLevel=0;thunder.rolloffMode=AudioRolloffMode.Linear;
         lightning=new GameObject("Storm lightning / independent of mains").AddComponent<Light>();lightning.transform.SetParent(transform,false);
         lightning.type=LightType.Directional;lightning.color=new Color(.63f,.76f,1);lightning.intensity=0;
-        lightning.shadows=LightShadows.Hard;lightning.shadowStrength=.9f;lightning.shadowBias=.025f;lightning.shadowNormalBias=.12f;
+        lightning.shadows=Application.isMobilePlatform?LightShadows.None:LightShadows.Hard;lightning.shadowStrength=.9f;lightning.shadowBias=.025f;lightning.shadowNormalBias=.12f;
         lightning.renderMode=LightRenderMode.ForcePixel;lightning.enabled=false;
         var boltShader=Resources.Load<Shader>("Presentation/StormBolt");
         if(boltShader!=null) {

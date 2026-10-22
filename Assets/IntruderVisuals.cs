@@ -32,7 +32,7 @@ public sealed class IntruderVisuals : MonoBehaviour
         beam.transform.localPosition=new Vector3(.12f,1.4f,.23f);beam.transform.localRotation=Quaternion.Euler(14,0,0);
         beam.type=LightType.Spot;beam.range=6;beam.spotAngle=58;beam.innerSpotAngle=26;
         beam.color=new Color(.47f,.61f,.69f);beam.intensity=.75f;
-        beam.shadows=LightShadows.Hard;beam.shadowBias=.03f;beam.shadowNormalBias=.12f;
+        beam.shadows=Application.isMobilePlatform&&GamePreferences.Graphics==0?LightShadows.None:LightShadows.Hard;beam.shadowBias=.03f;beam.shadowNormalBias=.12f;
         foreach(var renderer in GetComponentsInChildren<Renderer>())renderer.gameObject.layer=10;
     }
     void BuildTailoredFigure()

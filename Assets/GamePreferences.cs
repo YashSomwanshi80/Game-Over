@@ -54,7 +54,7 @@ public static class GamePreferences
         get{Load();return frameRate;}
         set{Load();frameRate=value==30||value==45?value:60;PlayerPrefs.SetInt("GameOver.FrameRate",frameRate);Apply();}
     }
-    // Graphics level: 0 LOW, 1 MEDIUM, 2 HIGH (default, identical to the original settings).
+    // Graphics level: 0 LOW, 1 MEDIUM, 2 HIGH (default). HIGH on desktop is the original look; on phones it is tuned lighter to run cooler.
     public static int Graphics
     {
         get{Load();return graphics;}
@@ -63,13 +63,22 @@ public static class GamePreferences
     public static void ApplyGraphics()
     {
         Load();bool mobile=Application.isMobilePlatform;
-        QualitySettings.pixelLightCount=graphics==2?(mobile?4:6):graphics==1?3:2;
+        QualitySettings.pixelLightCount=PixelLightsFor(graphics,mobile);
         QualitySettings.shadows=graphics==0?ShadowQuality.Disable:ShadowQuality.All;
-        QualitySettings.shadowDistance=graphics==2?(mobile?16:23):graphics==1?10:6;
-        QualitySettings.antiAliasing=graphics==2?2:0;
+        QualitySettings.shadowDistance=ShadowDistanceFor(graphics,mobile);
+        QualitySettings.shadowResolution=mobile?ShadowResolution.Low:ShadowResolution.Medium;
+        QualitySettings.antiAliasing=AntiAliasingFor(graphics,mobile);
+        QualitySettings.resolutionScalingFixedDPIFactor=RenderScaleFor(graphics,mobile); // only takes effect where the player uses Fixed DPI scaling (Android)
     }
-    public static int MaxLights(bool mobile){Load();return graphics==2?(mobile?9:14):graphics==1?7:5;}
-    public static int MaxShadowLights(bool mobile){Load();return graphics==2?(mobile?2:3):graphics==1?1:0;}
+    // Per-level tuning. Phones run cooler with fewer pixel lights and shadows and a lower render scale; desktop values are unchanged.
+    public static int PixelLightsFor(int level,bool mobile)=>mobile?(level==2?3:2):level==2?6:level==1?3:2;
+    public static float ShadowDistanceFor(int level,bool mobile)=>mobile?(level==2?12:level==1?9:6):level==2?23:level==1?10:6;
+    public static int AntiAliasingFor(int level,bool mobile)=>!mobile&&level==2?2:0;
+    public static float RenderScaleFor(int level,bool mobile)=>!mobile?1:level==2?.85f:level==1?.75f:.65f;
+    public static int MaxLightsFor(int level,bool mobile)=>mobile?(level==2?7:level==1?6:5):level==2?14:level==1?7:5;
+    public static int MaxShadowLightsFor(int level,bool mobile)=>mobile?(level==0?0:1):level==2?3:level==1?1:0;
+    public static int MaxLights(bool mobile){Load();return MaxLightsFor(graphics,mobile);}
+    public static int MaxShadowLights(bool mobile){Load();return MaxShadowLightsFor(graphics,mobile);}
     public static LightShadows FlashlightShadows(bool mobile){Load();return graphics==0?LightShadows.None:graphics==1||mobile?LightShadows.Hard:LightShadows.Soft;}
     public static bool QuickGuide
     {

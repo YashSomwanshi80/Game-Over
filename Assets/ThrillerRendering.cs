@@ -23,7 +23,6 @@ public sealed class ThrillerRendering : MonoBehaviour
         view.backgroundColor=new Color(.014f,.025f,.035f);
         view.clearFlags=RenderSettings.skybox!=null?CameraClearFlags.Skybox:CameraClearFlags.SolidColor;
         GamePreferences.ApplyGraphics();
-        QualitySettings.shadowResolution=ShadowResolution.Medium;
         QualitySettings.shadowProjection=ShadowProjection.StableFit;
         QualitySettings.shadowCascades=0;
         RenderSettings.ambientMode=AmbientMode.Trilight;

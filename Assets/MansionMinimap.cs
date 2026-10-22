@@ -3,6 +3,8 @@ using System;
 // Cached floor plans from actual level colliders. No enemy data and no extra render camera.
 public sealed class MansionMinimap:IDisposable {
  public static readonly Rect[] Worlds={new Rect(-11,-8.38f,22,16.76f),new Rect(-11,-10.667f,28,21.333f),new Rect(-13,-10.143f,24,18.286f)};
+ // Doorway pieces and door side panels are walls too; lintels and headers are dropped later by their height.
+ public static bool IsWallName(string lowerName)=>lowerName.Contains("wall")||lowerName.Contains("partition")||lowerName.Contains("divider")||lowerName.Contains("railing")||lowerName.Contains("fence")||lowerName.Contains("doorway")||lowerName.Contains("side panel");
  public static int FloorAt(float y)=>y< -1.5f?0:y>2?2:1;
  public static Vector2 Project(Vector3 at,Rect world,Rect canvas)=>new Vector2(Mathf.Lerp(canvas.xMin,canvas.xMax,Mathf.InverseLerp(world.xMin,world.xMax,at.x)),Mathf.Lerp(canvas.yMax,canvas.yMin,Mathf.InverseLerp(world.yMin,world.yMax,at.z)));
  const int TW=672,TH=512; // 24 px per metre so the map stays smooth when scaled
@@ -17,7 +19,7 @@ public sealed class MansionMinimap:IDisposable {
     if(surface)Paint(pixels,Worlds[floor],bounds,new Color32(38,57,64,255));
    }
    foreach(var box in boxes){if(!box.enabled||box.isTrigger)continue;var bounds=box.bounds;string name=box.name.ToLowerInvariant();
-    bool wall=name.Contains("wall")||name.Contains("partition")||name.Contains("divider")||name.Contains("railing")||name.Contains("fence");
+    bool wall=IsWallName(name);
     if(wall&&bounds.min.y<level+1.15f&&bounds.max.y>level+1.15f)Paint(pixels,Worlds[floor],bounds,new Color32(125,157,158,255));
    }
    plans[floor]=new Texture2D(TW,TH,TextureFormat.RGBA32,true){name="Minimap floor "+floor,filterMode=FilterMode.Trilinear,anisoLevel=4,wrapMode=TextureWrapMode.Clamp};plans[floor].SetPixels32(pixels);plans[floor].Apply(true,true);
