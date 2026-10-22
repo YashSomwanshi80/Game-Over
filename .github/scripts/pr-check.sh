@@ -30,10 +30,11 @@ if [ -n "$code" ]; then
   fi
 fi
 
+bumped=""; [ -n "$code" ] && [ -n "$newv" ] && [ "$newv" != "$oldv" ] && bumped=1
 marker='<!-- pr-rules-check -->'
 if [ ${#fails[@]} -eq 0 ]; then
   body="$marker
-**Rules check: passed.** This PR follows the CONTRIBUTING.md rules that can be checked automatically.${newv:+ New version: v$newv.}
+**Rules check: passed.** This PR follows the CONTRIBUTING.md rules that can be checked automatically.${bumped:+ New version: v$newv.}
 
 _This only checks the contributing rules. It does not review the game code._"
   status=0
