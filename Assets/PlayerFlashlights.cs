@@ -16,7 +16,7 @@ public sealed class PlayerFlashlights : MonoBehaviour
             var lamp=new GameObject(i==0?"Tapsee / battery flashlight":"Don / battery flashlight");lamp.transform.SetParent(transform,false);
             beams[i]=lamp.AddComponent<Light>();var l=beams[i];l.type=LightType.Spot;l.spotAngle=58;l.innerSpotAngle=32;l.range=18;l.intensity=4.5f;
             l.color=new Color(.92f,.96f,1);l.renderMode=LightRenderMode.ForcePixel;l.shadowNearPlane=.02f;l.shadowBias=.015f;l.shadowNormalBias=.12f;
-            l.shadows=Application.isMobilePlatform?LightShadows.Hard:LightShadows.Soft;l.enabled=false;
+            l.shadows=GamePreferences.FlashlightShadows(Application.isMobilePlatform);l.enabled=false;
             var prop=new GameObject("Handheld torch casing").transform;prop.SetParent(transform,false);props[i]=prop;
             var shell=VisualMesh.Lathe("Flashlight metal barrel",Vector3.zero,new[]{new Vector2(.026f,0),new Vector2(.027f,.14f),new Vector2(.045f,.17f),new Vector2(.045f,.20f)},pbr.Metal,prop,20);
             shell.transform.localRotation=Quaternion.Euler(90,0,0);
@@ -27,7 +27,7 @@ public sealed class PlayerFlashlights : MonoBehaviour
     public void ConfigureLocal(int role){localRole=role;actors[role]=eye.GetComponentInParent<CharacterController>();}
     public void SetActive(bool value){active=value;if(!value)for(int i=0;i<2;i++){beams[i].enabled=false;props[i].gameObject.SetActive(false);}}
     public bool Toggle(int role)=>batteries[role].Toggle();
-    public void Step(float dt){foreach(var battery in batteries)battery.Step(dt);}
+    public void Step(float dt){foreach(var battery in batteries)battery.Step(dt);var shadows=GamePreferences.FlashlightShadows(Application.isMobilePlatform);for(int i=0;i<beams.Length;i++)if(beams[i]!=null&&beams[i].shadows!=shadows)beams[i].shadows=shadows;}
     public void Recharge(int role,float fraction)=>batteries[role].Recharge(fraction);
     public bool On(int role)=>batteries[role].On;
     public float Charge(int role)=>batteries[role].Charge;

@@ -25,7 +25,7 @@ public static class GameOverAndroidBuild
             if(!string.IsNullOrEmpty(package))PlayerSettings.SetApplicationIdentifier(target,package);
             bool development=Environment.GetEnvironmentVariable("GAMEOVER_ANDROID_RELEASE")!="1";
             PlayerSettings.companyName="Game Over";PlayerSettings.productName="Game Over";
-            PlayerSettings.bundleVersion="0.3.27";PlayerSettings.Android.bundleVersionCode=Math.Max(57,PlayerSettings.Android.bundleVersionCode);
+            PlayerSettings.bundleVersion="0.3.28";PlayerSettings.Android.bundleVersionCode=Math.Max(58,PlayerSettings.Android.bundleVersionCode);
             PlayerSettings.SetScriptingBackend(target,ScriptingImplementation.IL2CPP);
             PlayerSettings.SetManagedStrippingLevel(target,ManagedStrippingLevel.Minimal);
             PlayerSettings.Android.targetArchitectures=AndroidArchitecture.ARM64;

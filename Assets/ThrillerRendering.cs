@@ -22,13 +22,10 @@ public sealed class ThrillerRendering : MonoBehaviour
         view.farClipPlane=Mathf.Min(view.farClipPlane,70);
         view.backgroundColor=new Color(.014f,.025f,.035f);
         view.clearFlags=RenderSettings.skybox!=null?CameraClearFlags.Skybox:CameraClearFlags.SolidColor;
-        QualitySettings.pixelLightCount=Application.isMobilePlatform?4:6;
-        QualitySettings.shadows=ShadowQuality.All;
+        GamePreferences.ApplyGraphics();
         QualitySettings.shadowResolution=ShadowResolution.Medium;
         QualitySettings.shadowProjection=ShadowProjection.StableFit;
-        QualitySettings.shadowDistance=Application.isMobilePlatform?16:23;
         QualitySettings.shadowCascades=0;
-        QualitySettings.antiAliasing=2;
         RenderSettings.ambientMode=AmbientMode.Trilight;
         RenderSettings.ambientSkyColor=new Color(.14f,.15f,.17f);
         RenderSettings.ambientEquatorColor=new Color(.075f,.085f,.095f);

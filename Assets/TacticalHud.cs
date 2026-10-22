@@ -18,7 +18,7 @@ public sealed class TacticalHud
     public static Rect MinimapPanel=>new Rect(26,24,180,168);
     readonly MansionMinimap minimap=new MansionMinimap();
     public void DrawMinimap(Vector3 position,float yaw,Vector3 phone,bool called,bool cameraDots=false){SetMatrix();minimap.Draw(MinimapPanel,position,yaw,phone,called,cameraDots);}
-    bool guideShown,controlPreferences;
+    bool guideShown,controlPreferences,performancePreferences;
     public struct State
     {
         public bool called,hidden,powered,motion,cameras,jammed;
@@ -313,7 +313,7 @@ public sealed class TacticalHud
         Text(new Rect(350,179,400,55),"Reach the telephone. Hold the call for "+RivalRules.CallSeconds+" seconds. Survive until help arrives.",pauseCopy);
         Text(new Rect(350,240,400,48),Application.isMobilePlatform?"Left stick: move / Drag centre: look\nPush joystick above its rim to run / ease back to walk\nUse the action and CCTV buttons":"WASD: move / Mouse: look / E: action\nCTRL crouch / SHIFT sprint / SPACE jump\nHold F: call / C: CCTV / Esc: pause",pauseHelp);
         PreferenceTabs(295);
-        if(controlPreferences)LookControls(345,false);else PreferenceControls(345);
+        if(performancePreferences)PerformanceControls(345);else if(controlPreferences)LookControls(345,false);else PreferenceControls(345);
         if(MenuButton(new Rect(350,520,400,50),"RESUME",pauseButton))return FrontEndAction.Resume;
         if(MenuButton(new Rect(350,584,190,42),"RESTART",pauseButton))return FrontEndAction.Retry;
         if(MenuButton(new Rect(560,584,190,42),"MAIN MENU",pauseButton))return FrontEndAction.MainMenu;
@@ -331,7 +331,7 @@ public sealed class TacticalHud
         Text(new Rect(350,164,400,50),"SETTINGS",pauseTitle);
         Text(new Rect(350,214,400,20),"Audio, weather and camera comfort",label);
         PreferenceTabs(240);
-        if(controlPreferences)LookControls(283);else {
+        if(performancePreferences)PerformanceControls(283);else if(controlPreferences)LookControls(283);else {
         PreferenceControls(283);
         Text(new Rect(350,453,230,38),"QUICK GUIDE NEXT RUN",heading);
         if(MenuButton(new Rect(644,455,106,38),GamePreferences.QuickGuide?"ON":"OFF",pauseButton))GamePreferences.QuickGuide=!GamePreferences.QuickGuide;
@@ -342,8 +342,18 @@ public sealed class TacticalHud
     }
     void PreferenceTabs(float y)
     {
-        if(MenuButton(new Rect(350,y,195,40),controlPreferences?"AUDIO / COMFORT":"AUDIO / COMFORT •",pauseButton))controlPreferences=false;
-        if(MenuButton(new Rect(555,y,195,40),controlPreferences?"CONTROLS •":"CONTROLS",pauseButton))controlPreferences=true;
+        if(MenuButton(new Rect(350,y,125,40),!controlPreferences&&!performancePreferences?"AUDIO •":"AUDIO",pauseButton)){controlPreferences=false;performancePreferences=false;}
+        if(MenuButton(new Rect(487,y,125,40),controlPreferences?"CONTROLS •":"CONTROLS",pauseButton)){controlPreferences=true;performancePreferences=false;}
+        if(MenuButton(new Rect(625,y,125,40),performancePreferences?"GRAPHICS •":"GRAPHICS",pauseButton)){performancePreferences=true;controlPreferences=false;}
+    }
+    void PerformanceControls(float y)
+    {
+        Text(new Rect(350,y,400,23),"FRAME RATE LIMIT",heading);
+        for(int i=0;i<3;i++){int fps=30+i*15;if(MenuButton(new Rect(350+i*137,y+28,125,36),fps+(GamePreferences.FrameRate==fps?" FPS •":" FPS"),pauseButton))GamePreferences.FrameRate=fps;}
+        Text(new Rect(350,y+78,400,23),"GRAPHICS QUALITY",heading);
+        string[] levels={"LOW","MEDIUM","HIGH"};
+        for(int i=0;i<3;i++)if(MenuButton(new Rect(350+i*137,y+106,125,36),levels[i]+(GamePreferences.Graphics==i?" •":""),pauseButton))GamePreferences.Graphics=i;
+        Text(new Rect(350,y+148,400,22),"Default: 60 FPS / HIGH. Lower = cooler, saves battery.",caption);
     }
     void LookControls(float y,bool showReset=true)
     {

@@ -110,7 +110,7 @@ public sealed class MansionLighting : MonoBehaviour
     {
         int room=HouseLightingLayout.CircuitAt(eye.x,eye.y,eye.z);
         fixtures.Sort((a,b)=>Priority(a,eye,room).CompareTo(Priority(b,eye,room)));
-        int shadows=0,enabled=0,maxLights=Application.isMobilePlatform?9:14;
+        int shadows=0,enabled=0,maxLights=GamePreferences.MaxLights(Application.isMobilePlatform);
         bool menu=showcase&&(!capturingReflection||room<0);
         foreach(var f in fixtures) {
             bool living=f.circuit==4; // Keep the existing living-room CCTV feed lit.
@@ -121,7 +121,7 @@ public sealed class MansionLighting : MonoBehaviour
             bool visible=menu||living||sameFloor&&nearby&&roomVisible;
             f.light.enabled=HouseLightingLayout.IsOn(houseMask,f.circuit,powered)&&visible&&(living||enabled<maxLights-3);
             if(f.light.enabled)enabled++;
-            bool shadow=f.shadows&&f.light.enabled&&shadows<(Application.isMobilePlatform?2:3);
+            bool shadow=f.shadows&&f.light.enabled&&shadows<GamePreferences.MaxShadowLights(Application.isMobilePlatform);
             f.light.shadows=shadow?LightShadows.Soft:LightShadows.None;if(shadow)shadows++;
         }
     }

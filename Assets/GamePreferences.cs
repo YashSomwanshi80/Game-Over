@@ -3,6 +3,7 @@ using UnityEngine;
 public static class GamePreferences
 {
     static bool loaded;
+    static int frameRate=60,graphics=2; // defaults match the original behaviour: 60 FPS, HIGH
     static DonDifficulty difficulty;
     static float master,atmosphere,mouseSensitivity,touchSensitivity;
     static bool bob,quickGuide,reducedLightning,invertLook;
@@ -18,6 +19,8 @@ public static class GamePreferences
         mouseSensitivity=FirstPersonLookRules.Sensitivity(PlayerPrefs.GetFloat("GameOver.MouseSensitivity",1));
         touchSensitivity=FirstPersonLookRules.Sensitivity(PlayerPrefs.GetFloat("GameOver.TouchSensitivity",1));
         invertLook=PlayerPrefs.GetInt("GameOver.InvertLook",0)!=0;
+        int fps=PlayerPrefs.GetInt("GameOver.FrameRate",60);frameRate=fps==30||fps==45?fps:60;
+        graphics=Mathf.Clamp(PlayerPrefs.GetInt("GameOver.Graphics",2),0,2);
     }
     public static DonDifficulty Difficulty
     {
@@ -39,7 +42,35 @@ public static class GamePreferences
         get{Load();return bob;}
         set{Load();bob=value;PlayerPrefs.SetInt("GameOver.CameraBob",bob?1:0);}
     }
-    public static void Apply(){Load();AudioListener.volume=master;if(Application.isMobilePlatform){QualitySettings.vSyncCount=0;Application.targetFrameRate=60;}}
+    public static void Apply()
+    {
+        Load();AudioListener.volume=master;
+        if(Application.isMobilePlatform){QualitySettings.vSyncCount=0;Application.targetFrameRate=frameRate;}
+        else{if(frameRate!=60)QualitySettings.vSyncCount=0;Application.targetFrameRate=frameRate==60?-1:frameRate;}
+    }
+    // Frame-rate cap: 30, 45 or 60 (default). Lower values run cooler and save battery.
+    public static int FrameRate
+    {
+        get{Load();return frameRate;}
+        set{Load();frameRate=value==30||value==45?value:60;PlayerPrefs.SetInt("GameOver.FrameRate",frameRate);Apply();}
+    }
+    // Graphics level: 0 LOW, 1 MEDIUM, 2 HIGH (default, identical to the original settings).
+    public static int Graphics
+    {
+        get{Load();return graphics;}
+        set{Load();graphics=Mathf.Clamp(value,0,2);PlayerPrefs.SetInt("GameOver.Graphics",graphics);ApplyGraphics();}
+    }
+    public static void ApplyGraphics()
+    {
+        Load();bool mobile=Application.isMobilePlatform;
+        QualitySettings.pixelLightCount=graphics==2?(mobile?4:6):graphics==1?3:2;
+        QualitySettings.shadows=graphics==0?ShadowQuality.Disable:ShadowQuality.All;
+        QualitySettings.shadowDistance=graphics==2?(mobile?16:23):graphics==1?10:6;
+        QualitySettings.antiAliasing=graphics==2?2:0;
+    }
+    public static int MaxLights(bool mobile){Load();return graphics==2?(mobile?9:14):graphics==1?7:5;}
+    public static int MaxShadowLights(bool mobile){Load();return graphics==2?(mobile?2:3):graphics==1?1:0;}
+    public static LightShadows FlashlightShadows(bool mobile){Load();return graphics==0?LightShadows.None:graphics==1||mobile?LightShadows.Hard:LightShadows.Soft;}
     public static bool QuickGuide
     {
         get{Load();return quickGuide;}

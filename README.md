@@ -15,9 +15,10 @@ Tapsee has to reach the phone and call the police. Don has to stop her. Play alo
 
 | Version | Platform | Download |
 |---|---|---|
-| **v0.3.27** (latest) | Android 8.0+ (ARM64) | [**GAME-OVER-v0.3.27.apk**](https://github.com/YashSomwanshi80/Game-Over/releases/download/v0.3.27/GAME-OVER-v0.3.27.apk) |
+| **v0.3.28** (latest) | Android 8.0+ (ARM64) | [**GAME-OVER-v0.3.28.apk**](https://github.com/YashSomwanshi80/Game-Over/releases/download/v0.3.28/GAME-OVER-v0.3.28.apk) |
+| v0.3.27 | Android 8.0+ (ARM64) | [GAME-OVER-v0.3.27.apk](https://github.com/YashSomwanshi80/Game-Over/releases/download/v0.3.27/GAME-OVER-v0.3.27.apk) |
 
-SHA-256: `d33d2cf5529d12cf9610d9e2aa217fe4242f445dc8fe2d7ac6c643c169b7eec6` (70.9 MB, release build, ARM64). Built with Unity 6000.5.7f1 and **not yet tested on a physical phone**.
+SHA-256 (v0.3.28): `80b15b0fecba2ef156572110a01ad47c0e48952b1d5351763abb355c41d0b41d` (70.9 MB, release build, ARM64). Built with Unity 6000.5.7f1 and **not yet tested on a physical phone**.
 
 All versions: [Releases page](https://github.com/YashSomwanshi80/Game-Over/releases)
 
@@ -63,7 +64,13 @@ A match lasts 6 minutes. If Tapsee never completes the call, Don wins when the t
 • Cinematic intro, storm weather, procedural sound design, surface-dependent footsteps, police siren and arrival lights<br>
 • Touch controls: virtual joystick, look area, and large buttons for phones<br><br>
 
-# 🆕 Latest Version: v0.3.27
+# 🆕 Latest Version: v0.3.28
+
+- **New Graphics settings.** Settings now has a **GRAPHICS** tab (main menu and pause menu) where you can cap the frame rate at 30, 45 or 60 FPS and pick Low, Medium or High graphics quality. Lower settings use fewer lights and shadows, so the phone runs cooler and uses less battery.
+- **Defaults are unchanged.** The game still starts at 60 FPS and High, exactly as before.
+- Changes apply instantly and are remembered.
+
+## v0.3.27
 
 - **New minimap layout.** The minimap is now at the top left, with the objective card beside it. The security and phone-distance cards were rearranged to fit.
 - **Bigger, clearer map.** The house now fills the whole map box, and the panel is slightly see-through so it blocks less of the view.
