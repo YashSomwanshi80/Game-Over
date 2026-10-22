@@ -68,7 +68,7 @@ public static class GamePreferences
         QualitySettings.shadowDistance=ShadowDistanceFor(graphics,mobile);
         QualitySettings.shadowResolution=mobile?ShadowResolution.Low:ShadowResolution.Medium;
         QualitySettings.antiAliasing=AntiAliasingFor(graphics,mobile);
-        QualitySettings.resolutionScalingFixedDPIFactor=RenderScaleFor(graphics,mobile); // only takes effect where the player uses Fixed DPI scaling (Android)
+        ApplyRenderScale(RenderScaleFor(graphics,mobile));
     }
     // Per-level tuning. Phones run cooler with fewer pixel lights and shadows and a lower render scale; desktop values are unchanged.
     public static int PixelLightsFor(int level,bool mobile)=>mobile?(level==2?3:2):level==2?6:level==1?3:2;
@@ -77,6 +77,28 @@ public static class GamePreferences
     public static float RenderScaleFor(int level,bool mobile)=>!mobile?1:level==2?.85f:level==1?.75f:.65f;
     public static int MaxLightsFor(int level,bool mobile)=>mobile?(level==2?7:level==1?6:5):level==2?14:level==1?7:5;
     public static int MaxShadowLightsFor(int level,bool mobile)=>mobile?(level==0?0:1):level==2?3:level==1?1:0;
+    // Renders at a fraction of THIS device's own screen on phones (the display scales it up), so it adapts to any screen size.
+    // Screens whose short side is already modest (720 px or less) are never scaled down, and the short side never drops below 720 px.
+    // The native size is remembered the first time so repeated changes never compound. Desktop is never touched.
+    public const int MinimumShortSide=720;
+    public static void RenderSizeFor(int nativeWidth,int nativeHeight,float scale,out int width,out int height)
+    {
+        width=nativeWidth;height=nativeHeight;
+        if(nativeWidth<=0||nativeHeight<=0||float.IsNaN(scale)||scale>=.999f)return;
+        int shortSide=Mathf.Min(nativeWidth,nativeHeight);
+        if(shortSide<=MinimumShortSide)return;
+        float factor=Mathf.Max(Mathf.Clamp(scale,.3f,1f),(float)MinimumShortSide/shortSide);
+        width=Mathf.Min(nativeWidth,Mathf.RoundToInt(nativeWidth*factor));height=Mathf.Min(nativeHeight,Mathf.RoundToInt(nativeHeight*factor));
+    }
+    static int nativeWidth,nativeHeight,appliedWidth,appliedHeight;
+    public static void ApplyRenderScale(float scale)
+    {
+        if(!Application.isMobilePlatform)return;
+        if(nativeWidth==0){nativeWidth=Screen.width;nativeHeight=Screen.height;}
+        RenderSizeFor(nativeWidth,nativeHeight,scale,out int w,out int h);
+        if(w==appliedWidth&&h==appliedHeight)return;
+        appliedWidth=w;appliedHeight=h;Screen.SetResolution(w,h,true);
+    }
     public static int MaxLights(bool mobile){Load();return MaxLightsFor(graphics,mobile);}
     public static int MaxShadowLights(bool mobile){Load();return MaxShadowLightsFor(graphics,mobile);}
     public static LightShadows FlashlightShadows(bool mobile){Load();return graphics==0?LightShadows.None:graphics==1||mobile?LightShadows.Hard:LightShadows.Soft;}
