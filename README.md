@@ -16,9 +16,6 @@ Tapsee has to reach the phone and call the police. Don has to stop her. Play alo
 | Version | Platform | Download |
 |---|---|---|
 | **v0.3.30** (latest) | Android 8.0+ (ARM64) | [**GAME-OVER-v0.3.30.apk**](https://github.com/YashSomwanshi80/Game-Over/releases/download/v0.3.30/GAME-OVER-v0.3.30.apk) |
-| v0.3.29 (blurry on phones, use v0.3.30) | Android 8.0+ (ARM64) | [GAME-OVER-v0.3.29.apk](https://github.com/YashSomwanshi80/Game-Over/releases/download/v0.3.29/GAME-OVER-v0.3.29.apk) |
-| v0.3.28 | Android 8.0+ (ARM64) | [GAME-OVER-v0.3.28.apk](https://github.com/YashSomwanshi80/Game-Over/releases/download/v0.3.28/GAME-OVER-v0.3.28.apk) |
-| v0.3.27 | Android 8.0+ (ARM64) | [GAME-OVER-v0.3.27.apk](https://github.com/YashSomwanshi80/Game-Over/releases/download/v0.3.27/GAME-OVER-v0.3.27.apk) |
 
 SHA-256 (v0.3.30): `9ab648612a0a3c39598a0111b00541facc8abafda972e16730d988d2b0c4e398` (70.0 MB, release build, ARM64). Built with Unity 6000.3.21f1. Installed and checked on one phone (OnePlus CPH2585, Android 16); heat and battery are **not yet measured**.
 
@@ -68,7 +65,16 @@ A match lasts 6 minutes. If Tapsee never completes the call, Don wins when the t
 • Cinematic intro, storm weather, procedural sound design, surface-dependent footsteps, police siren and arrival lights<br>
 • Touch controls: virtual joystick, look area, and large buttons for phones<br><br>
 
-# 🆕 Latest Version: v0.3.28
+# 🆕 Latest Version: v0.3.30
+
+- **Sharp picture on phones.** The game renders at a fraction of your own screen (85% on High, 75% on Medium, 65% on Low), never below 720 px on the short side, and phones with small screens are not scaled down. This fixes the blur in v0.3.29.
+- **Cooler graphics on phones.** On phones, High uses fewer lights and shadows (3 pixel lights, 7 active room lights, 1 shadow-casting light, 12 m shadow distance, no multisampling). Desktop is unchanged.
+- **Minimap fix.** The doorway walls (Storage, Laundry, Utility, Safe room, washrooms) are now drawn.
+- **Graphics settings.** Settings has a **GRAPHICS** tab (main menu and pause menu): cap the frame rate at 30, 45 or 60 FPS and pick Low, Medium or High quality. Defaults are 60 FPS and High.
+
+Only the latest version is published on the Releases page. Earlier versions are described below and in [versions/](versions/).
+
+## v0.3.28 and v0.3.27 (earlier)
 
 - **New Graphics settings.** Settings now has a **GRAPHICS** tab (main menu and pause menu) where you can cap the frame rate at 30, 45 or 60 FPS and pick Low, Medium or High graphics quality. Lower settings use fewer lights and shadows, so the phone runs cooler and uses less battery.
 - **Defaults are unchanged.** The game still starts at 60 FPS and High, exactly as before.
