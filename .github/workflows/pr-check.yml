@@ -1,0 +1,29 @@
+name: PR rules check
+
+# Checks every pull request against the rules in CONTRIBUTING.md and posts one comment.
+# It uses pull_request_target so it can comment on PRs from forks. For safety it only
+# READS the PR's files with git. It never builds, runs or executes anything from the PR.
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the base branch (trusted code)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Fetch the PR commits (read only)
+        run: git fetch origin "pull/${{ github.event.pull_request.number }}/head:pr-head"
+      - name: Check the contributing rules
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: bash .github/scripts/pr-check.sh

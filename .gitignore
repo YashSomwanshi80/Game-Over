@@ -16,3 +16,4 @@
 /GameOver*.apk
 /outputs/
 *.apk
+/.utmp/
